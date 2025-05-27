@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="cardback" size="16.000000 21.333334" />
+    <ImageTarget name="joker" size="16.000000 21.333334" />
+    <ImageTarget name="jokercolored" size="16.000000 21.333334" />
+    <ImageTarget name="spadeq" size="16.000000 21.333334" />
+    <ImageTarget name="spadek" size="16.000000 21.333334" />
+    <ImageTarget name="spadej" size="16.000000 21.333334" />
+    <ImageTarget name="spadea" size="16.000000 21.333334" />
+    <ImageTarget name="spade10" size="16.000000 21.333334" />
+    <ImageTarget name="spade9" size="16.000000 21.333334" />
+    <ImageTarget name="spade8" size="16.000000 21.333334" />
+    <ImageTarget name="spade7" size="16.000000 21.333334" />
+    <ImageTarget name="spade6" size="16.000000 21.333334" />
+    <ImageTarget name="spade5" size="16.000000 21.333334" />
+    <ImageTarget name="spade4" size="16.000000 21.333334" />
+    <ImageTarget name="spade3" size="16.000000 21.333334" />
+    <ImageTarget name="spade2" size="16.000000 21.333334" />
+    <ImageTarget name="heartq" size="16.000000 21.333334" />
+    <ImageTarget name="heartk" size="16.000000 21.333334" />
+    <ImageTarget name="heartj" size="16.000000 21.333334" />
+    <ImageTarget name="heart10" size="16.000000 21.333334" />
+    <ImageTarget name="heart9" size="16.000000 21.333334" />
+    <ImageTarget name="heart8" size="16.000000 21.333334" />
+    <ImageTarget name="heart7" size="16.000000 21.333334" />
+    <ImageTarget name="heart5" size="16.000000 21.333334" />
+    <ImageTarget name="heart6" size="16.000000 21.333334" />
+    <ImageTarget name="heart4" size="16.000000 21.333334" />
+    <ImageTarget name="heart3" size="16.000000 21.333334" />
+    <ImageTarget name="heart2" size="16.000000 21.333334" />
+    <ImageTarget name="cardsocial" size="16.000000 21.333334" />
+    <ImageTarget name="cardinfored" size="16.000000 21.333334" />
+    <ImageTarget name="cardinfoblue" size="16.000000 21.333334" />
+    <ImageTarget name="cardinfo" size="16.000000 21.333334" />
+    <ImageTarget name="diaq" size="16.000000 21.333334" />
+    <ImageTarget name="diak" size="16.000000 21.333334" />
+    <ImageTarget name="diaj" size="16.000000 21.333334" />
+    <ImageTarget name="diaa" size="16.000000 21.333334" />
+    <ImageTarget name="dia10" size="16.000000 21.333334" />
+    <ImageTarget name="dia9" size="16.000000 21.333334" />
+    <ImageTarget name="dia8" size="16.000000 21.333334" />
+    <ImageTarget name="dia7" size="16.000000 21.333334" />
+    <ImageTarget name="dia6" size="16.000000 21.333334" />
+    <ImageTarget name="dia5" size="16.000000 21.333334" />
+    <ImageTarget name="dia4" size="16.000000 21.333334" />
+    <ImageTarget name="dia3" size="16.000000 21.333334" />
+    <ImageTarget name="dia2" size="16.000000 21.333334" />
+    <ImageTarget name="clubk" size="16.000000 21.333334" />
+    <ImageTarget name="clubq" size="16.000000 21.333334" />
+    <ImageTarget name="clubj" size="16.000000 21.333334" />
+    <ImageTarget name="cluba" size="16.000000 21.333334" />
+    <ImageTarget name="club10" size="16.000000 21.333334" />
+    <ImageTarget name="club9" size="16.000000 21.333334" />
+    <ImageTarget name="club8" size="16.000000 21.333334" />
+    <ImageTarget name="club6" size="16.000000 21.333334" />
+    <ImageTarget name="club7" size="16.000000 21.333334" />
+    <ImageTarget name="club5" size="16.000000 21.333334" />
+    <ImageTarget name="club4" size="16.000000 21.333334" />
+    <ImageTarget name="club3" size="16.000000 21.333334" />
+    <ImageTarget name="club2" size="16.000000 21.333334" />
+  </Tracking>
+</QCARConfig>

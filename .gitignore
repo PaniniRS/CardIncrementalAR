@@ -1,0 +1,24 @@
+# Unity-specific files to ignore
+Library/
+Temp/
+Obj/
+Logs/
+UserSettings/
+Packages/*
+*.sln
+*.csproj
+*.unityproj
+*.userprefs
+
+
+# Ignore build outputs
+Builds/
+Build/
+
+
+# Ignore Lightmap and Cache
+LightmapSnapshot/
+*.uvlayout
+*.navmesh
+*.dds
+
