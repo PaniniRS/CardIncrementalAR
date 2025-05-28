@@ -14,6 +14,7 @@ public class GameHandler : MonoBehaviour
     public GameObject UIMoneyValue;
     Coroutine passiveIncomeCoroutine;
 
+    // int upgradesBought = 0;
     int cardsActive = 0;
     int incrementalStep = 0;
     float incomeMultiplier = 1f;
