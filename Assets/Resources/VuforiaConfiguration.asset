@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: ARfsWjj/////AAABmaEj3q6SFksuuHCSYb2ZgZUseU/6EAulRMJu0XIub5vjl4VD8rqeFukQ+O23UtY6aXNcfzvYL/97p6COyYDoZ/uC0QA0PPXQusE208HBIyJEXNmhzyofydlLY2F1q+lnbpYOrg07YQYym5+tnFNfhf+4xVOBZOi7AN9b3p8WoNOYi+rprvzuUS3kVvRQdkFQTZXno0UbgeRmBBHzvrB0DGMYN+RT4QkTwWXcgbSpH6WFfVFZxby3LdG7A3vk3qv9jJEid9mMQvazvRm3zKl5doNTBHj8Q3wL27gF0Qv8cQLDIe4AWC2thX14o/0Trq5P8Ij5nVRi5bWKPb2B/Z4Bakais7C0T439cya6eJ+TY/2w
+    vuforiaLicenseKey: Aemyzhn/////AAABmVJ0TtYfk0Rnku3rXC+HCdkm60Vo292LqXRKgG3rNE4UIViDzbNoaYw4mUL39iRX3brELFI3ieuSi/CpVH77ohSt6Eo54vmzydK6OwYFeuEO7mahX5IJ9zszMcwbc0vZp2sOOB4/+h30LA4j+TIiqQt74+GHY5DdMdDsbhonns3y2JntNoBLc60k+yb1i638dehYVP/B7BkLiqhjRt2/kLRcXB/j9AGc7SPn1SVCwoIifCAZAHpifJQaRQmtPik35ctIdbusuFvpqhIwA6YsXOjrqCvu8wOBbLvGx5vcXDFLbK/rX1fXD+YJBQVzxAcZpWPtIAink+FOZtpTBB80AmN/JzCiKioXm7o48l+RblZD
     ufoLicenseKey: QWJuNWlJSC8vLy8vQUFBQUtNSHFDbnlKZlUydXVGMDQxMmdvWkQ5YXhJUWYrZFYyK3hOdm5nNndaZ1pUQjIxbGYxQVpFQTdnRi82Z3JsZFpRWVNRYmhmSENaU0FWN0dHUCtvd3pxOXExc25aSzNpUzBHVzl2d25Zdm54TTg4WEdOZkNSRHQ1a1VoVENsMk9hbWdrRzFCUVpwbmowdEhEWlB0dGU5dFBUVUtCZk5jNmsvSUdFMmFhblN2bFkrYzB2YU1mdk51L2dGT0Y3T0hSZlRCa1VPQU1CUTZ1b2NmMnJPcGc0cVRFSjZUcEhwcDQzM0k3MDNESmxQam5ucWcwVElXQjJTb09lT0FyOG81UHdLUDB1NzNxWFh3aCtQdFQybnVKNW4yUUVZNGhSdnpTRGtUUUVyUmhYallrbzVTQXM0MnZoVURuZ3AxRHRnVmcrMGxETTVpQ0ZKTU8zVnAzTVdpTjRkSm1zeTdxcU13V2poMnd5eThzVkZyWmM=
     delayedInitialization: 0
     cameraFocusModeSetting: 2
-    cameraDeviceModeSetting: -1
+    cameraDeviceModeSetting: -3
     maxSimultaneousImageTargets: 6
     virtualSceneScaleFactor: 1
     modelTargetRecoWhileExtendedTracked: 1
@@ -52,4 +52,4 @@ MonoBehaviour:
   webcam:
     renderTextureLayer: 30
   packageInformation:
-    ARFoundationVersion: 
+    ARFoundationVersion: 6.0.5

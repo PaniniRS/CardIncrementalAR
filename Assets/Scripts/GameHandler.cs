@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
+using JetBrains.Annotations;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 public class GameHandler : MonoBehaviour
 {
@@ -94,6 +97,26 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+    //Income Multiplier functions
+    public float getMulitplier()
+    {
+        return incomeMultiplier;
+    }
+        
+        
+    public void addMultiplier(float value)
+    {
+        incomeMultiplier += value;
+    }
+
+    public void removeMultiplier(float value)
+    {
+        float newIncMultiplier = incomeMultiplier - value;
+        //Check for negative multiplier
+        if (newIncMultiplier < 1) { newIncMultiplier = 1; }
+        incomeMultiplier = newIncMultiplier;
+    }
+    
 
     // Functions for changing count of current active cards
     public void ActivateCard(int amount)
@@ -137,7 +160,7 @@ public class GameHandler : MonoBehaviour
     {
         while (true)
         {
-            AddMoney(incrementalStep);
+            AddMoney(Convert.ToInt32(incrementalStep * incomeMultiplier));
             UpdateUI();
             yield return new WaitForSeconds(TICKRATE_SECONDS);
         }

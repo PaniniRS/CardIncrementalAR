@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="hearta" size="16.000000 23.130938" />
+    <ImageTarget name="diaa" size="16.000000 22.239872" />
     <ImageTarget name="cardback" size="16.000000 21.333334" />
     <ImageTarget name="joker" size="16.000000 21.333334" />
     <ImageTarget name="jokercolored" size="16.000000 21.333334" />
@@ -36,7 +38,6 @@
     <ImageTarget name="diaq" size="16.000000 21.333334" />
     <ImageTarget name="diak" size="16.000000 21.333334" />
     <ImageTarget name="diaj" size="16.000000 21.333334" />
-    <ImageTarget name="diaa" size="16.000000 21.333334" />
     <ImageTarget name="dia10" size="16.000000 21.333334" />
     <ImageTarget name="dia9" size="16.000000 21.333334" />
     <ImageTarget name="dia8" size="16.000000 21.333334" />
