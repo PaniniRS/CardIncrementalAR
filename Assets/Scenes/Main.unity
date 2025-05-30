@@ -21968,6 +21968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelShop
       objectReference: {fileID: 0}
+    - target: {fileID: 7792995230445074776, guid: 25d41376513264a4192d94913833a6c0, type: 3}
+      propertyPath: m_Name
+      value: UpgradeItem02
+      objectReference: {fileID: 0}
     - target: {fileID: 9157542657864624530, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 779

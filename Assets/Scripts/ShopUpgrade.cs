@@ -5,7 +5,7 @@ public class ShopUpgrade : MonoBehaviour
 {
 
     [Header("Upgrade Properties")]
-    public string name;
+    public string nameUpgrade;
     public int currentPrice;
     public int startPrice;
     public int level;
@@ -15,11 +15,24 @@ public class ShopUpgrade : MonoBehaviour
     public GameObject labelPrice;
     public GameObject labelLevel;
     public GameObject labelName;
+    public GameObject upgradeButton;
 
-
-
-    // Update is called once per frame
-
+    void Start()
+    {
+        if (labelName != null && labelPrice != null && labelLevel != null) {
+            
+            //Initialize the upgrade with the starting price and level
+            currentPrice = startPrice;
+            level = 0;
+            //Update the UI with the initial values
+            UpdateUpgradeUI();
+            // Add listener to the upgrade button
+            upgradeButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(BuyClick);
+            Debug.Log("ShopUpgrade initialized: " + name);
+        } else {
+            Debug.LogError("UI elements not assigned for upgrade: " + name);
+        }
+    }
     int CalculatePrice(int level)
     {
         // Price increases by 10% for each upgrade bought
@@ -52,6 +65,7 @@ public class ShopUpgrade : MonoBehaviour
         if (labelPrice != null && labelLevel != null)
         {
             Debug.Log("Updating UI for upgrade: " + name);
+            labelName.GetComponent<TMPro.TextMeshProUGUI>().text = nameUpgrade;
             labelPrice.GetComponent<TMPro.TextMeshProUGUI>().text = currentPrice.ToString();
             labelLevel.GetComponent<TMPro.TextMeshProUGUI>().text = level.ToString();
         }
