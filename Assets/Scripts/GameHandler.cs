@@ -12,12 +12,13 @@ public class GameHandler : MonoBehaviour
 
     public static GameHandler Instance;
     public GameObject UIMoneyValue;
+    public GameObject UIMultiplierValue;
     Coroutine passiveIncomeCoroutine;
 
     // int upgradesBought = 0;
     int cardsActive = 0;
     int incrementalStep = 0;
-    float incomeMultiplier = 1f;
+    float incomeMultiplier = 0f;
     /////////////////////////////////////////////////////////////
     public float TICKRATE_SECONDS = 1f;
     public long money = 10;
@@ -43,6 +44,7 @@ public class GameHandler : MonoBehaviour
     void initUI()
     {
         initBalance();
+        initMultiplier();
     }
 
     void initBalance()
@@ -53,6 +55,16 @@ public class GameHandler : MonoBehaviour
             return;
         }
         UIMoneyValue.GetComponent<TextMeshProUGUI>().text = money.ToString();
+
+    }
+    void initMultiplier()
+    {
+        if (UIMultiplierValue == null)
+        {
+            Debug.LogError("UIMultiplierValue GameObject not found in the scene.");
+            return;
+        }
+        UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = incomeMultiplier.ToString("F2");
 
     }
     //// MONEY HANDLING FUNCTIONS
@@ -110,6 +122,7 @@ public class GameHandler : MonoBehaviour
         if (UIMoneyValue != null)
         {
             UIMoneyValue.GetComponent<TextMeshProUGUI>().text = money.ToString();
+            UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = incomeMultiplier.ToString("F2");
         }
     }
 
@@ -122,12 +135,12 @@ public class GameHandler : MonoBehaviour
         
     public void addMultiplier(float value)
     {
-        incomeMultiplier += value;
+        incomeMultiplier *= value;
     }
 
     public void removeMultiplier(float value)
     {
-        float newIncMultiplier = incomeMultiplier - value;
+        float newIncMultiplier = incomeMultiplier / value;
         //Check for negative multiplier
         if (newIncMultiplier < 1) { newIncMultiplier = 1; }
         incomeMultiplier = newIncMultiplier;

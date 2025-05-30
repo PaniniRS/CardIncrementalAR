@@ -6,6 +6,7 @@ public class ShopUpgrade : MonoBehaviour
 
     [Header("Upgrade Properties")]
     public string nameUpgrade;
+    public string descriptionUpgrade;
     public int currentPrice;
     public int startPrice;
     public int level;
@@ -15,12 +16,13 @@ public class ShopUpgrade : MonoBehaviour
     public GameObject labelPrice;
     public GameObject labelLevel;
     public GameObject labelName;
+    public GameObject labelDescription; 
     public GameObject upgradeButton;
 
     void Start()
     {
-        if (labelName != null && labelPrice != null && labelLevel != null) {
-            
+        if (labelName != null && labelPrice != null && labelLevel != null && labelDescription != null) {
+
             //Initialize the upgrade with the starting price and level
             currentPrice = startPrice;
             level = 0;
@@ -62,12 +64,13 @@ public class ShopUpgrade : MonoBehaviour
 
     void UpdateUpgradeUI()
     {
-        if (labelPrice != null && labelLevel != null)
+        if (labelPrice != null && labelLevel != null && labelDescription != null)
         {
             Debug.Log("Updating UI for upgrade: " + name);
             labelName.GetComponent<TMPro.TextMeshProUGUI>().text = nameUpgrade;
             labelPrice.GetComponent<TMPro.TextMeshProUGUI>().text = currentPrice.ToString();
             labelLevel.GetComponent<TMPro.TextMeshProUGUI>().text = level.ToString();
+            labelDescription.GetComponent<TMPro.TextMeshProUGUI>().text = descriptionUpgrade;
         }
         else
         {
