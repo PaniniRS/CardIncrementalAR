@@ -28,6 +28,7 @@ public class ShopUpgrade : MonoBehaviour
             level = 0;
             //Update the UI with the initial values
             UpdateUpgradeUI();
+            GameHandler.Instance.UpdateUI();
             // Add listener to the upgrade button
             upgradeButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(BuyClick);
             Debug.Log("ShopUpgrade initialized: " + name);

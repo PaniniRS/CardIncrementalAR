@@ -18,7 +18,7 @@ public class GameHandler : MonoBehaviour
     // int upgradesBought = 0;
     int cardsActive = 0;
     int incrementalStep = 0;
-    float incomeMultiplier = 0f;
+    public float incomeMultiplier = 1f;
     /////////////////////////////////////////////////////////////
     public float TICKRATE_SECONDS = 1f;
     public long money = 10;
@@ -116,10 +116,10 @@ public class GameHandler : MonoBehaviour
         UpdateUI();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         // Update the UI text with the current money value
-        if (UIMoneyValue != null)
+        if (UIMoneyValue != null && UIMultiplierValue != null)
         {
             UIMoneyValue.GetComponent<TextMeshProUGUI>().text = money.ToString();
             UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = incomeMultiplier.ToString("F2");
@@ -127,7 +127,7 @@ public class GameHandler : MonoBehaviour
     }
 
     //Income Multiplier functions
-    public float getMulitplier()
+    public float getMultiplier()
     {
         return incomeMultiplier;
     }
@@ -142,7 +142,7 @@ public class GameHandler : MonoBehaviour
     {
         float newIncMultiplier = incomeMultiplier / value;
         //Check for negative multiplier
-        if (newIncMultiplier < 1) { newIncMultiplier = 1; }
+        if (newIncMultiplier < 0) { newIncMultiplier = 1; }
         incomeMultiplier = newIncMultiplier;
     }
     
