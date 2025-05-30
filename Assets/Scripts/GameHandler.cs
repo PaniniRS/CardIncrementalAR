@@ -60,6 +60,21 @@ public class GameHandler : MonoBehaviour
     /// 
     /// 
 
+    /// Buying from shop
+    Boolean BuyFromShop(int price)
+    {
+        //Check if we have enough money
+        if (money >= price)
+        {
+            RemoveMoney(price);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Not enough money to buy this item.");
+            return false;
+        }
+    }
 
     void AddMoney(int amount)
     {
