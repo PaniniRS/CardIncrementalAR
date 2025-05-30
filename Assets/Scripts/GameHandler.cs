@@ -61,7 +61,7 @@ public class GameHandler : MonoBehaviour
     /// 
 
     /// Buying from shop
-    Boolean BuyFromShop(int price)
+    public bool BuyFromShop(int price)
     {
         //Check if we have enough money
         if (money >= price)
