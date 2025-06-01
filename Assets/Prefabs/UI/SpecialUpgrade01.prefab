@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 2625689807828392625}
   - component: {fileID: 3677405309899290692}
   m_Layer: 5
-  m_Name: SpecialUpgradeName
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 4560479116085409482}
   - component: {fileID: 8194062607532738483}
   m_Layer: 5
-  m_Name: Thubmnail
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

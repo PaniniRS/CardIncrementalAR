@@ -1,6 +1,7 @@
 using System;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpecialUpgradesHandler : MonoBehaviour
 {
@@ -64,56 +65,6 @@ public class SpecialUpgradesHandler : MonoBehaviour
         GameHandler.Instance.ReduceTickRate(randomChange);
     });
 
-    // Function to select a random upgrade from the special upgrades
-    Upgrade SelectRandomUpgrade()
-    {
-        int randomIndex = UnityEngine.Random.Range(0, specialUpgrades.Length);
-        Upgrade selectedUpgrade = specialUpgrades[randomIndex];
-        Debug.Log("Selected Upgrade: " + selectedUpgrade.name);
-        return selectedUpgrade;
-    }
-
-
-    public void SelectRandomUpgrades()
-    {
-        // Ensure the special upgrade panel is active
-        specialUpgradePanel.SetActive(true);
-        // Array to hold the selected upgrades
-        Upgrade[] selectedUpgrades = new Upgrade[3];
-        //Selecting 3 random upgrades from the special upgrades
-        for (int i = 0; i < selectedUpgrades.Length; i++)
-        {
-            Upgrade temporaryUpgrade = SelectRandomUpgrade();
-            // Ensure the selected upgrade wont repeat
-            while (Array.Exists(selectedUpgrades, upgrade => upgrade.name == temporaryUpgrade.name))
-            {
-                temporaryUpgrade = SelectRandomUpgrade();
-            }
-            selectedUpgrades[i] = temporaryUpgrade;
-        }
-        // Clear the container before adding new upgrades
-        foreach (Transform child in specialUpgradesContainer.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        // Instantiate the selected upgrades in the UI
-        foreach (Upgrade upgrade in selectedUpgrades)
-        {
-            GameObject upgradeItem = Instantiate(specialUpgradeItemPrefab, specialUpgradesContainer.transform);
-            upgradeItem.transform.Find("Name").GetComponent<UnityEngine.UI.Text>().text = upgrade.name;
-            upgradeItem.transform.Find("Image").GetComponent<UnityEngine.UI.Image>().sprite = upgrade.image;
-            upgradeItem.transform.Find("Description").GetComponent<UnityEngine.UI.Text>().text = upgrade.description;
-            upgradeItem.transform.Find("Button").GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
-            {
-                upgrade.action.Invoke();
-                GameHandler.Instance.UpdateUI();
-                Destroy(upgradeItem);
-                specialUpgradePanel.SetActive(false);
-                Debug.Log("Upgrade applied: " + upgrade.name + " - " + upgrade.description);
-            });
-        }
-    }
-
     void Awake()
     {
         specialUpgrades = new Upgrade[]
@@ -141,5 +92,61 @@ public class SpecialUpgradesHandler : MonoBehaviour
         {
             Debug.LogError("Special Upgrade UI elements are not assigned.");
         }
+    }
+    // Function to select a random upgrade from the special upgrades
+    Upgrade SelectRandomUpgrade()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, specialUpgrades.Length);
+        Upgrade selectedUpgrade = specialUpgrades[randomIndex];
+        Debug.Log("Selected Upgrade: " + selectedUpgrade.name);
+        return selectedUpgrade;
+    }
+
+
+    public void SelectRandomUpgrades()
+    {
+        // Ensure the special upgrade panel is active
+        specialUpgradePanel.SetActive(true);
+        // Array to hold the selected upgrades
+        Upgrade[] selectedUpgrades = new Upgrade[3];
+        //Selecting 3 random upgrades from the special upgrades
+        for (int i = 0; i < selectedUpgrades.Length; i++)
+        {
+            Upgrade temporaryUpgrade = SelectRandomUpgrade();
+            // Ensure the selected upgrade wont repeat
+            while (Array.Exists(selectedUpgrades, upgrade => upgrade.name == temporaryUpgrade.name))
+            {
+                temporaryUpgrade = SelectRandomUpgrade();
+            }
+            selectedUpgrades[i] = temporaryUpgrade;
+            Debug.Log("Selected Upgrade " + (i + 1) + ": " + temporaryUpgrade.name);
+        }
+        // Clear the container before adding new upgrades
+        foreach (Transform child in specialUpgradesContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        // Instantiate the selected upgrades in the UI
+
+        foreach (Upgrade upgrade in selectedUpgrades)
+        {
+            // GameObject upgradeItem = Instantiate(specialUpgradeItemPrefab, specialUpgradesContainer.transform);
+            GameObject upgradeItem = Instantiate(specialUpgradeItemPrefab, specialUpgradesContainer.transform);
+            // Set the upgrade item properties
+            upgradeItem.transform.Find("Name").GetComponent<TMPro.TextMeshProUGUI>().text = upgrade.name;
+            upgradeItem.transform.Find("Image").GetComponent<UnityEngine.UI.Image>().sprite = upgrade.image;
+            upgradeItem.transform.Find("Description").GetComponent<TMPro.TextMeshProUGUI>().text = upgrade.description;
+            upgradeItem.transform.Find("Button").GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+                            {
+                                upgrade.action.Invoke();
+                                GameHandler.Instance.UpdateUI();
+                                Destroy(upgradeItem);
+                                specialUpgradePanel.SetActive(false);
+                                Debug.Log("Upgrade applied: " + upgrade.name + " - " + upgrade.description);
+                            });
+            upgradeItem.gameObject.SetActive(true);
+        }
+
+
     }
 }
