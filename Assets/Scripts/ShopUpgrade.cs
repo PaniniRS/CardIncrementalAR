@@ -7,14 +7,15 @@ public class ShopUpgrade : MonoBehaviour
     [Header("Upgrade Properties")]
     public string nameUpgrade;
     public string descriptionUpgrade;
-    public int currentPrice;
-    public int startPrice;
+    public double currentPrice;
+    public double startPrice;
     public int level;
     public float upgradeMultiplier;
     public int upgradeIncome;
     public bool isUpgrade = true;
     public bool useMultiplier = true;
     public bool useIncome = false;
+    public GameHandler.Suits suit;
 
     [Header("UI Elements")]
     public GameObject labelPrice;
@@ -54,22 +55,22 @@ public class ShopUpgrade : MonoBehaviour
             Debug.LogError("UI elements not assigned for upgrade: " + name);
         }
     }
-    int CalculatePrice(int level)
+    double CalculatePrice(int level)
     {
         // Price increases by 10% for each upgrade bought
-        return Mathf.RoundToInt(currentPrice * Mathf.Pow(1.1f, level));
+        return Math.Round(currentPrice * Mathf.Pow(1.1f, level));
     }
 
     void ActivateUpgrade(float upgradeMultiplier)
     {
-        if (useMultiplier) { GameHandler.Instance.addMultiplier(upgradeMultiplier); return; }
+        if (useMultiplier) { GameHandler.Instance.AddMultiplier(upgradeMultiplier); return; }
         if (useIncome) { GameHandler.Instance.AddIncome(upgradeIncome); return; }
         Debug.LogWarning("Upgrade type not defined for: " + nameUpgrade);
 
     }
     void DeactivateUpgrade(float upgradeMultiplier)
     {
-        if (useMultiplier) { GameHandler.Instance.removeMultiplier(upgradeMultiplier); return; }
+        if (useMultiplier) { GameHandler.Instance.RemoveMultiplier(upgradeMultiplier); return; }
         if (useIncome) { GameHandler.Instance.RemoveIncome(upgradeIncome); return; }
         Debug.LogWarning("Upgrade type not defined for: " + nameUpgrade);
     }
@@ -104,7 +105,7 @@ public class ShopUpgrade : MonoBehaviour
         {
             Debug.Log("Updating UI for upgrade: " + name);
             labelName.GetComponent<TMPro.TextMeshProUGUI>().text = nameUpgrade;
-            labelPrice.GetComponent<TMPro.TextMeshProUGUI>().text = currentPrice.ToString();
+            labelPrice.GetComponent<TMPro.TextMeshProUGUI>().text = GameHandler.Instance.FormatNotation(currentPrice);
             labelLevel.GetComponent<TMPro.TextMeshProUGUI>().text = level.ToString();
             labelDescription.GetComponent<TMPro.TextMeshProUGUI>().text = descriptionUpgrade;
             GameHandler.Instance.UpdateUI();

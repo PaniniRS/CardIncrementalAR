@@ -15,11 +15,11 @@ using Debug = UnityEngine.Debug;
 public class GameHandler : MonoBehaviour
 {
 
-    enum Suits
+    public enum Suits
     {
         Club, Heart, Spade, Diamond, JokerBlack, JokerRed, Socials, Info, InfoRed, InfoBlue, CardBack
     }
-    enum Value
+    public enum Value
     {
         A = 1,
         Two = 2,
@@ -86,18 +86,18 @@ public class GameHandler : MonoBehaviour
     int cardsNextCost = 50;
     int cardSlots = 1;
     int cardsActive = 0;
-    int income = 0;
+    double income = 0;
     public float incomeMultiplier = 1f;
     public float incomeComboMultiplier = 1f;
-
-
-    /////////////////////////////////////////////////////////////
     public float TICKRATE_SECONDS = 1f;
-    float TICKRATE_SECONDS_MIN = 0.2f;
-    float TICKRATE_SECONDS_MAX = 10f;
-    int CARDS_MAX_ACTIVE = 5;
+    readonly float TICKRATE_SECONDS_MIN = 0.2f;
+    readonly float TICKRATE_SECONDS_MAX = 10f;
+    readonly int CARDS_MAX_ACTIVE = 5;
+    public double money = 10;
 
-    public long money = 10;
+    /// ///////////////////////
+    /// Stats
+    long upgradesBought = 0;
 
     List<Card> hand = new List<Card>();
     PokerHand[] activeCombinations = new PokerHand[10];
@@ -126,6 +126,30 @@ public class GameHandler : MonoBehaviour
     //
     //
 
+    public string FormatNotation(double money)
+    {
+
+        if (money >= 1_000_000_000_000)
+        {
+            return (money / 1_000_000_000_000).ToString("F2") + "T"; // Trillions
+        }
+        else if (money >= 1_000_000_000)
+        {
+            return (money / 1_000_000_000).ToString("F2") + "B"; // Billions
+        }
+        else if (money >= 1_000_000)
+        {
+            return (money / 1_000_000).ToString("F2") + "M"; // Millions
+        }
+        else if (money >= 1_000)
+        {
+            return (money / 1_000).ToString("F2") + "K"; // Thousands
+        }
+        else
+        {
+            return money.ToString("F2"); // Less than a thousand
+        }
+    }
     void InitUI()
     {
         InitBalance();
@@ -151,7 +175,6 @@ public class GameHandler : MonoBehaviour
         }
         UITickrateValue.GetComponent<TextMeshProUGUI>().text = "/" + TICKRATE_SECONDS.ToString("F2") + "s";
     }
-
     void InitBalance()
     {
         if (UIMoneyValue == null)
@@ -159,7 +182,7 @@ public class GameHandler : MonoBehaviour
             Debug.LogError("UIMoneyValue GameObject not found in the scene.");
             return;
         }
-        UIMoneyValue.GetComponent<TextMeshProUGUI>().text = money.ToString();
+        UIMoneyValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(money);
 
     }
     void InitMultiplier()
@@ -170,6 +193,17 @@ public class GameHandler : MonoBehaviour
             return;
         }
         UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = incomeMultiplier.ToString("F2");
+    }
+    public void UpdateUI()
+    {
+        // Update the UI text with the current money value
+        if (UIMoneyValue != null && UIMultiplierValue != null)
+        {
+            UIMoneyValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(money);
+            UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = (incomeMultiplier * incomeComboMultiplier).ToString("F2");
+            UIIncomeValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(income * incomeMultiplier * incomeComboMultiplier);
+            UITickrateValue.GetComponent<TextMeshProUGUI>().text = TICKRATE_SECONDS.ToString("F2") + "/s";
+        }
     }
 
     ////////////////////////
@@ -187,7 +221,6 @@ public class GameHandler : MonoBehaviour
         // Close the notification after 3 seconds
         Invoke(nameof(CloseNotification), 3f);
     }
-
     void OpenNotification()
     {
         animatorNotification.SetTrigger("Open");
@@ -202,7 +235,7 @@ public class GameHandler : MonoBehaviour
     /// 
 
     /// Buying from shop
-    public bool BuyFromShop(int price)
+    public bool BuyFromShop(double price)
     {
         //Check if we have enough money
         if (money >= price)
@@ -216,16 +249,15 @@ public class GameHandler : MonoBehaviour
             return false;
         }
     }
-
-    void AddMoney(int amount)
+    void AddMoney(double amount)
     {
         money += amount;
         UpdateUI();
 
     }
-    public void RemoveMoney(int amount)
+    public void RemoveMoney(double amount)
     {
-        long newMoney = money -= amount;
+        double newMoney = money -= amount;
         //We cant go into negative balance values
         if (newMoney < 0)
         {
@@ -235,50 +267,32 @@ public class GameHandler : MonoBehaviour
         money = newMoney;
         UpdateUI();
     }
-    public long GetMoney()
+    public double GetMoney()
     {
         return money;
     }
-    void SetMoney(int amount)
+    void SetMoney(double amount)
     {
         money = amount;
         UpdateUI();
     }
 
-    public void UpdateUI()
-    {
-        // Update the UI text with the current money value
-        if (UIMoneyValue != null && UIMultiplierValue != null)
-        {
-            UIMoneyValue.GetComponent<TextMeshProUGUI>().text = money.ToString();
-            UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = incomeMultiplier.ToString("F2");
-            UIIncomeValue.GetComponent<TextMeshProUGUI>().text = Convert.ToInt32(income * incomeMultiplier).ToString("");
-            UITickrateValue.GetComponent<TextMeshProUGUI>().text = TICKRATE_SECONDS.ToString("F2") + "/s";
-        }
-    }
-
     //Income Multiplier functions
-
-    public float getMultiplier()
+    public float GetMultiplier()
     {
         return incomeMultiplier;
     }
-
-
-    public void addMultiplier(float value)
+    public void AddMultiplier(float value)
     {
         incomeMultiplier *= value;
     }
-
-    public void removeMultiplier(float value)
+    public void RemoveMultiplier(float value)
     {
         float newIncMultiplier = incomeMultiplier / value;
         //Check for negative multiplier
         if (newIncMultiplier < 0) { newIncMultiplier = 1; }
         incomeMultiplier = newIncMultiplier;
     }
-
-
     // Functions for changing count of current active cards
     public void ActivateCard(int amount)
     {
@@ -308,11 +322,11 @@ public class GameHandler : MonoBehaviour
     // Functions for changing how much money is added every tick to the balance
     public void AddIncome(int amount)
     {
-        income += amount;
+        income += Convert.ToDouble(amount);
     }
     public void RemoveIncome(int amount)
     {
-        int newIncome = income - amount;
+        double newIncome = income - Convert.ToDouble(amount);
         if (newIncome < 0) { newIncome = 0; }
         income = newIncome;
     }
@@ -325,7 +339,7 @@ public class GameHandler : MonoBehaviour
             //Checks whether we have more than the allowed amount of active cards
             if (cardsActive <= CARDS_MAX_ACTIVE && cardsActive <= cardSlots)
             {
-                AddMoney(Convert.ToInt32(income * incomeMultiplier));
+                AddMoney(Convert.ToInt32(income * incomeMultiplier * incomeComboMultiplier));
                 //Disable alert if its active for the case when we have more than the allowed amount of active cards
                 if (UIAlert.activeSelf) { HideAlert(); }
             }
@@ -420,7 +434,7 @@ public class GameHandler : MonoBehaviour
         // Generate a random amount of money between min and max
         int randomAmountMultiplier = UnityEngine.Random.Range((int)minInclusive, (int)maxInclusive + 1);
 
-        AddMoney(Mathf.RoundToInt(money * randomAmountMultiplier));
+        AddMoney(Math.Round(money * randomAmountMultiplier));
         // Update the UI with the new money value
         UpdateUI();
     }
@@ -449,7 +463,7 @@ public class GameHandler : MonoBehaviour
         // Generate a random percentage between the given range
         float randomPercentage = UnityEngine.Random.Range(minPercentage, maxPercentage);
         // Calculate the amount to add or subtract
-        int amountChange = Mathf.RoundToInt(money * randomPercentage);
+        double amountChange = Math.Round(money * randomPercentage);
         // Add or subtract the amount from the current money
         if (amountChange < 0)
         {
@@ -463,7 +477,6 @@ public class GameHandler : MonoBehaviour
         UpdateUI();
 
     }
-
     public void ReduceTickRate(float value)
     {
         // Reduce the tick rate by the specified value
@@ -504,8 +517,8 @@ public class GameHandler : MonoBehaviour
         hand.Add(new Card(suit, cardValue)); // Add the card to the hand
         Debug.Log($"Added {cardValue} of {suit} to hand.");
         CheckPokerHand(); // Call the function to check poker hands after adding a card
+        UpdateUI();
     }
-
     public void RemoveFromHandUniversal(GameObject gameObject)
     {
         // This function will remove a card from the hand based on the GameObject's name.
@@ -518,6 +531,7 @@ public class GameHandler : MonoBehaviour
         hand.RemoveAll(card => card.suit == suit && card.value == cardValue);
         Debug.Log($"Removed {cardValue} of {suit} from hand.");
         CheckPokerHand(); // Call the function to check poker hands after removing a card
+        UpdateUI();
     }
     void CheckPokerHand()
     {
@@ -672,7 +686,6 @@ public class GameHandler : MonoBehaviour
                        values.Contains((int)Value.Ten);
         return IsStraightFlush() && isRoyal;
     }
-
     Suits ExtractSuitFromCardName(string cardName)
     {
         // Extract the suit from the card name
