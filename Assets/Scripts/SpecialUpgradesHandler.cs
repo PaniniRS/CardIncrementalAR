@@ -38,9 +38,9 @@ public class SpecialUpgradesHandler : MonoBehaviour
 
     [Header("Upgrades")]
     Upgrade[] specialUpgrades;
-    Upgrade cashBlast = new Upgrade("Cash Blast", "Increases your income by 10%", () => GameHandler.Instance.addMultiplier(1.1f));
-    Upgrade cashBlast2 = new Upgrade("Cash Blast II", "Increases your income by 20%", () => GameHandler.Instance.addMultiplier(1.2f));
-    Upgrade cashBlast3 = new Upgrade("Cash Blast III", "Increases your income by 30%", () => GameHandler.Instance.addMultiplier(1.3f));
+    Upgrade cashBlast = new Upgrade("Cash Blast", "Increases your income by 10%", () => GameHandler.Instance.AddMultiplier(1.1f));
+    Upgrade cashBlast2 = new Upgrade("Cash Blast II", "Increases your income by 20%", () => GameHandler.Instance.AddMultiplier(1.2f));
+    Upgrade cashBlast3 = new Upgrade("Cash Blast III", "Increases your income by 30%", () => GameHandler.Instance.AddMultiplier(1.3f));
     Upgrade doubleCash = new Upgrade("Double Cash", "Doubles your income for 30 seconds", () => GameHandler.Instance.TemporarilyAddMultiplier(2.0f, 30f));
     Upgrade tripleCash = new Upgrade("Triple Cash", "Triples your income for 30 seconds", () => GameHandler.Instance.TemporarilyAddMultiplier(3.0f, 30f));
     Upgrade cashInjection = new Upgrade("Cash Injection", "Gives you a one-time cash boost (between 20% and 120% of current income)", () => GameHandler.Instance.AddRandomMoney(0.2f, 1.2f));

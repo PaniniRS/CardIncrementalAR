@@ -241,6 +241,7 @@ public class GameHandler : MonoBehaviour
         if (money >= price)
         {
             RemoveMoney(price);
+            IncUpgradeBoughtStat();
             return true;
         }
         else
@@ -248,6 +249,7 @@ public class GameHandler : MonoBehaviour
             Debug.Log("Not enough money to buy this item.");
             return false;
         }
+
     }
     void AddMoney(double amount)
     {
@@ -276,7 +278,7 @@ public class GameHandler : MonoBehaviour
         money = amount;
         UpdateUI();
     }
-
+    void IncUpgradeBoughtStat() { upgradesBought += 1; }
     //Income Multiplier functions
     public float GetMultiplier()
     {
