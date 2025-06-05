@@ -89,6 +89,8 @@ public class GameHandler : MonoBehaviour
     double income = 0;
     public float incomeMultiplier = 1f;
     public float incomeComboMultiplier = 1f;
+
+    public double citiesIncome = 0;
     public float TICKRATE_SECONDS = 1f;
     readonly float TICKRATE_SECONDS_MIN = 0.2f;
     readonly float TICKRATE_SECONDS_MAX = 10f;
@@ -326,11 +328,19 @@ public class GameHandler : MonoBehaviour
     {
         income += Convert.ToDouble(amount);
     }
+    public void AddIncomeDouble(double amount)
+    {
+        income += amount;
+    }
     public void RemoveIncome(int amount)
     {
         double newIncome = income - Convert.ToDouble(amount);
         if (newIncome < 0) { newIncome = 0; }
         income = newIncome;
+    }
+    public void RemoveIncomeDouble(double amount)
+    {
+        income -= amount;
     }
     /// Setting a repeating loop that will increment money based on card drawn
     IEnumerator PassiveIncome()
