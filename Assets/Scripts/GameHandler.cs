@@ -117,7 +117,7 @@ public class GameHandler : MonoBehaviour
     void Start()
     {
         InitUI();
-
+        UINotification.SetActive(true);
     }
     void OnEnable()
     {
@@ -338,7 +338,7 @@ public class GameHandler : MonoBehaviour
         if (newIncome < 0) { newIncome = 0; }
         income = newIncome;
     }
-    public void RemoveIncomeDouble(double amount)
+    public void RemoveInwcomeDouble(double amount)
     {
         income -= amount;
     }

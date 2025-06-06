@@ -20327,6 +20327,18 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -20373,6 +20385,27 @@ PrefabInstance:
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityName
+      value: Berlin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityPrice
+      value: 25000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityDescription
+      value: State of the art work scheduling allows the factories to churn out 500k
+        cards a day
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityIncomeBenefit
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8016117962925107435, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -20539,6 +20572,18 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -20585,6 +20630,27 @@ PrefabInstance:
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityName
+      value: London
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityPrice
+      value: 5000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityDescription
+      value: Royal City and as such they have a royal printing factory! Produces
+        300k cards a day.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityIncomeBenefit
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8016117962925107435, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -20864,6 +20930,18 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -20910,6 +20988,26 @@ PrefabInstance:
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityName
+      value: New York
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityPrice
+      value: 100000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityDescription
+      value: City that never stops printing. 600k a day!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityIncomeBenefit
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 8016117962925107435, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -21327,6 +21425,18 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -21373,6 +21483,26 @@ PrefabInstance:
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityName
+      value: Tokyo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityPrice
+      value: 100000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityDescription
+      value: Has unpublicised state of the art quantum printing. 1M cards a day!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityIncomeBenefit
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8016117962925107435, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -25423,7 +25553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743287553584262278, guid: f64261f2251324aa2bd6ec9f6dfd9522, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -497.99997
+      value: -498
       objectReference: {fileID: 0}
     - target: {fileID: 3743287553584262278, guid: f64261f2251324aa2bd6ec9f6dfd9522, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -27576,6 +27706,18 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -27622,6 +27764,26 @@ PrefabInstance:
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityName
+      value: Paris
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityPrice
+      value: 50000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityDescription
+      value: The city of cards!! Produces 400k cards a day.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityIncomeBenefit
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8016117962925107435, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -27741,6 +27903,18 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -27787,6 +27961,27 @@ PrefabInstance:
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityName
+      value: Sydney
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityPrice
+      value: 50000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityDescription
+      value: There are rumors that the factory is upside down, not confirmed of course.
+        400k prints a day.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101192742057025794, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: cityIncomeBenefit
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8016117962925107435, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -28465,7 +28660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2820543241741857283, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 301.99997
+      value: 302
       objectReference: {fileID: 0}
     - target: {fileID: 2820543241741857283, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       propertyPath: m_AnchoredPosition.y
