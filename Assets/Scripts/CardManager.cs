@@ -58,9 +58,8 @@ public class CardManager : MonoBehaviour
         }
     }
 
-
-
     public List<Card> Hand { get; set; } = new List<Card>();
+    public List<Card> Deck { get; set; } = new List<Card>();
 
     PokerHand[] activeCombinations = new PokerHand[10];
 

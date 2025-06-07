@@ -1806,8 +1806,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -1833,8 +1833,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -1891,6 +1891,55 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 136889056}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!1 &142222559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142222561}
+  - component: {fileID: 142222560}
+  m_Layer: 0
+  m_Name: CardHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &142222560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142222559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c3d5a878b344b83880a3d22797c93a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &142222561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142222559}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -47.58671, y: -20.366573, z: 290.82812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &171003888 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+  m_PrefabInstance: {fileID: 1894407777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &191928090 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3820427134315664793, guid: 30765b60fab9b456f832190470f854b7, type: 3}
@@ -2045,6 +2094,168 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 194689447}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!1001 &199897073
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1546513617}
+    m_Modifications:
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: useIncome
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: startPrice
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: nameUpgrade
+      value: Draw a hand watch
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeIncome
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: useMultiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: destroyOnPurchase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: descriptionUpgrade
+      value: Reduces tickrate by 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073766348450057557, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Name
+      value: TickReduce0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 658
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+--- !u!224 &199897074 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+  m_PrefabInstance: {fileID: 199897073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200211490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,8 +2481,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -2297,8 +2508,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -2834,8 +3045,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -2861,8 +3072,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -3624,8 +3835,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -3651,8 +3862,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -4376,8 +4587,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -4403,8 +4614,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -4549,8 +4760,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -4576,8 +4787,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -4644,11 +4855,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: startPrice
-      value: 500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: nameUpgrade
       value: Paper Cutter
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: upgradeMultiplier
@@ -4978,8 +5193,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -5005,8 +5220,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -5151,8 +5366,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -5178,8 +5393,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -5324,8 +5539,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -5351,8 +5566,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -6060,8 +6275,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -6087,8 +6302,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -6619,8 +6834,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -6646,8 +6861,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -6792,8 +7007,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -6819,8 +7034,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -7285,8 +7500,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -7312,8 +7527,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -7458,8 +7673,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -7485,8 +7700,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -7989,8 +8204,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -8016,8 +8231,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -8193,8 +8408,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -8220,8 +8435,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -8631,8 +8846,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -8658,8 +8873,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -9048,8 +9263,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -9087,8 +9302,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -9238,8 +9453,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -9265,8 +9480,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -9411,8 +9626,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -9438,8 +9653,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -10484,8 +10699,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -10511,8 +10726,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -10673,8 +10888,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -10700,8 +10915,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -11566,8 +11781,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -11593,8 +11808,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -13581,8 +13796,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -13608,8 +13823,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -14140,8 +14355,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -14167,8 +14382,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -14435,8 +14650,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -14462,8 +14677,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -14962,8 +15177,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -14989,8 +15204,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -15328,8 +15543,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -15355,8 +15570,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -15763,6 +15978,10 @@ PrefabInstance:
       value: Hire Worker
       objectReference: {fileID: 0}
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: upgradeIncome
       value: 10
       objectReference: {fileID: 0}
@@ -15983,8 +16202,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -16010,8 +16229,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -16862,6 +17081,10 @@ PrefabInstance:
       value: Hire Skilled Worker
       objectReference: {fileID: 0}
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: upgradeIncome
       value: 50
       objectReference: {fileID: 0}
@@ -17306,8 +17529,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -17333,8 +17556,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -17479,8 +17702,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -17506,8 +17729,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -17652,8 +17875,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -17679,8 +17902,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -18538,8 +18761,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -18565,8 +18788,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -18711,8 +18934,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -18738,8 +18961,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -19415,8 +19638,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -19442,8 +19665,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -19724,8 +19947,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -19751,8 +19974,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -19933,8 +20156,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -19960,8 +20183,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -20294,6 +20517,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92538659}
     m_Modifications:
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Offset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_CompositeOperation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -20527,7 +20778,6 @@ MonoBehaviour:
   UINotification: {fileID: 2017298921}
   UINotificationText: {fileID: 1884025677}
   incomeMultiplier: 1
-  incomeComboMultiplier: 1
   citiesIncome: 0
   TICKRATE_SECONDS: 2
   money: 10
@@ -20539,6 +20789,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92538659}
     m_Modifications:
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Offset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_CompositeOperation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -20897,6 +21175,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92538659}
     m_Modifications:
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Offset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_CompositeOperation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -21392,6 +21698,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92538659}
     m_Modifications:
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Offset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_CompositeOperation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -21625,8 +21959,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -21652,8 +21986,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -21733,6 +22067,10 @@ PrefabInstance:
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: nameUpgrade
       value: Hire Friend
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: upgradeIncome
@@ -22148,8 +22486,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -22175,8 +22513,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -22514,8 +22852,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -22541,8 +22879,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -22687,8 +23025,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -22714,8 +23052,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -23219,8 +23557,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -23246,8 +23584,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -23522,8 +23860,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1546513617}
     m_Modifications:
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: startPrice
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: nameUpgrade
       value: Laser Printer
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
       propertyPath: descriptionUpgrade
@@ -23998,6 +24344,167 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2046457780015253399, guid: f64261f2251324aa2bd6ec9f6dfd9522, type: 3}
   m_PrefabInstance: {fileID: 2017298919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1894407777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1546513617}
+    m_Modifications:
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: useIncome
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: startPrice
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: nameUpgrade
+      value: Draw a hand watch
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeIncome
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: useMultiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeTickRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: destroyOnPurchase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: descriptionUpgrade
+      value: Reduces tickrate by 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073766348450057557, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Name
+      value: TickReduce0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 658
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
 --- !u!1 &1900765433
 GameObject:
   m_ObjectHideFlags: 0
@@ -24086,8 +24593,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -24113,8 +24620,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -24335,8 +24842,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -24362,8 +24869,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -24894,8 +25401,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -24921,8 +25428,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -25067,8 +25574,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -25094,8 +25601,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -25390,8 +25897,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -25417,8 +25924,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -25643,6 +26150,168 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &2024321827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1546513617}
+    m_Modifications:
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: useIncome
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: startPrice
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: nameUpgrade
+      value: Hire Advisor
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeIncome
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: useMultiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: upgradeMultiplier
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 941715740910534642, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: descriptionUpgrade
+      value: Increase Income by 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073766348450057557, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Name
+      value: Income100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074128611778643606, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 658
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+--- !u!224 &2024321828 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8224376033717833071, guid: ea0e01921af59445faffc71bd6bbc62c, type: 3}
+  m_PrefabInstance: {fileID: 2024321827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2050492091
 GameObject:
   m_ObjectHideFlags: 0
@@ -25731,8 +26400,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -25758,8 +26427,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -26488,8 +27157,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -26515,8 +27184,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -26661,8 +27330,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -26688,8 +27357,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -26834,8 +27503,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -26861,8 +27530,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -27393,8 +28062,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: AddToHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -27420,8 +28089,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1531622543}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
+      - m_Target: {fileID: 142222560}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: RemoveFromHandUniversal
         m_Mode: 2
         m_Arguments:
@@ -27673,6 +28342,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92538659}
     m_Modifications:
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Offset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_CompositeOperation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -27870,6 +28567,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 92538659}
     m_Modifications:
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.x
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_Offset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830388519408044980, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
+      propertyPath: m_CompositeOperation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3709035717765482881, guid: f8029415fc47a416c94def75d4f3112d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -28771,6 +29496,10 @@ PrefabInstance:
       value: Card Slots
       objectReference: {fileID: 0}
     - target: {fileID: 6466903311251278847, guid: 25d41376513264a4192d94913833a6c0, type: 3}
+      propertyPath: upgradeType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466903311251278847, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       propertyPath: upgradeMultiplier
       value: 1
       objectReference: {fileID: 0}
@@ -28860,16 +29589,25 @@ PrefabInstance:
       addedObject: {fileID: 133249473}
     - targetCorrespondingSourceObject: {fileID: 4614778574010881301, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 238513561}
+    - targetCorrespondingSourceObject: {fileID: 4614778574010881301, guid: 25d41376513264a4192d94913833a6c0, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1850596934}
+    - targetCorrespondingSourceObject: {fileID: 4614778574010881301, guid: 25d41376513264a4192d94913833a6c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 199897074}
+    - targetCorrespondingSourceObject: {fileID: 4614778574010881301, guid: 25d41376513264a4192d94913833a6c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1102604346}
     - targetCorrespondingSourceObject: {fileID: 4614778574010881301, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1362872944}
     - targetCorrespondingSourceObject: {fileID: 4614778574010881301, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 238513561}
+      addedObject: {fileID: 2024321828}
     - targetCorrespondingSourceObject: {fileID: 4614778574010881301, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1102604346}
+      addedObject: {fileID: 171003888}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6497786340535428595, guid: 25d41376513264a4192d94913833a6c0, type: 3}
       insertIndex: -1
@@ -28892,3 +29630,4 @@ SceneRoots:
   - {fileID: 701912483}
   - {fileID: 1531622542}
   - {fileID: 95721087}
+  - {fileID: 142222561}

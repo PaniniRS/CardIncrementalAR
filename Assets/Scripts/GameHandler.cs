@@ -36,7 +36,7 @@ public class GameHandler : MonoBehaviour
 
     [Header("GameHandler Variables")]
 
-    int cardsNextCost = 50;
+    public int CardsNextCost { get; set; } = 50;
     int cardSlots = 1;
     int cardsActive = 0;
     double income = 0;
@@ -51,7 +51,7 @@ public class GameHandler : MonoBehaviour
 
     /// ///////////////////////
     /// Stats
-    long upgradesBought = 0;
+    long upgradesBought { get; set; } = 0;
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -334,32 +334,17 @@ public class GameHandler : MonoBehaviour
             Debug.Log("Restarting PassiveIncome with new tick rate.");
         }
     }
-
-    ///////////////////////////
-    /// Card Count Functions
-    public int GetCardsNextCost()
-    {
-        return cardsNextCost;
-    }
-    public void SetCardsNextCost(int value)
-    {
-        cardsNextCost = value;
-        if (UINextCardValue != null)
-        {
-            UINextCardValue.GetComponent<TextMeshProUGUI>().text = cardsNextCost.ToString();
-        }
-    }
     public void IncCardsNextCost()
     {
-        cardsNextCost *= Convert.ToInt32(Math.Pow(10, Convert.ToDouble(cardsActive))); // Increment by 10 for example
-        UINextCardValue.GetComponent<TextMeshProUGUI>().text = cardsNextCost.ToString();
+        CardsNextCost *= Convert.ToInt32(Math.Pow(10, Convert.ToDouble(cardsActive))); // Increment by 10 for example
+        UINextCardValue.GetComponent<TextMeshProUGUI>().text = CardsNextCost.ToString();
     }
     public void DecCardsNextCost()
     {
-        if (cardsNextCost > 0)
+        if (CardsNextCost > 0)
         {
-            cardsNextCost /= Convert.ToInt32(Math.Pow(10, Convert.ToDouble(cardsActive))); // Increment by 10 for example
-            UINextCardValue.GetComponent<TextMeshProUGUI>().text = cardsNextCost.ToString();
+            CardsNextCost /= Convert.ToInt32(Math.Pow(10, Convert.ToDouble(cardsActive))); // Increment by 10 for example
+            UINextCardValue.GetComponent<TextMeshProUGUI>().text = CardsNextCost.ToString();
         }
     }
     public void IncCardSlots() { cardSlots += 1; }
@@ -461,7 +446,6 @@ public class GameHandler : MonoBehaviour
         // Restart the passive income coroutine with the new tick rate
         SyncStartPassiveIncome();
     }
-
 
 
 }

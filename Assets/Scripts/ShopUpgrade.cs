@@ -3,26 +3,33 @@ using UnityEngine;
 
 public class ShopUpgrade : MonoBehaviour
 {
+    private enum UpgradeType
+    {
+        TickRate,
+        Multiplier,
+        Income,
+        CardSlot
+    }
 
     [Header("Upgrade Properties")]
-    public string nameUpgrade;
-    public string descriptionUpgrade;
-    public double currentPrice;
-    public double startPrice;
-    public int level;
-    public float upgradeMultiplier;
-    public int upgradeIncome;
-    public bool isUpgrade = true;
-    public bool useMultiplier = true;
-    public bool useIncome = false;
-    public GameHandler.Suits suit;
+    [SerializeField] string nameUpgrade;
+    [SerializeField] string descriptionUpgrade;
+    [SerializeField] double currentPrice;
+    [SerializeField] double startPrice;
+    [SerializeField] int level;
+    [SerializeField] float upgradeMultiplier = 1.01f; // Default multiplier increase
+    [SerializeField] int upgradeIncome = 1; // Default income increase;
+    [SerializeField] float upgradeTickRate = 0.1f; // Default tick rate increase
+    [SerializeField] CardManager.Suits suit;
+    [SerializeField] UpgradeType upgradeType;
+    [SerializeField] bool destroyOnPurchase = false;
 
     [Header("UI Elements")]
-    public GameObject labelPrice;
-    public GameObject labelLevel;
-    public GameObject labelName;
-    public GameObject labelDescription;
-    public GameObject upgradeButton;
+    [SerializeField] GameObject labelPrice;
+    [SerializeField] GameObject labelLevel;
+    [SerializeField] GameObject labelName;
+    [SerializeField] GameObject labelDescription;
+    [SerializeField] GameObject upgradeButton;
 
 
 
@@ -33,14 +40,14 @@ public class ShopUpgrade : MonoBehaviour
         {
 
             //Initialize the upgrade with the starting price and level
-            if (isUpgrade)
+            if (upgradeType != UpgradeType.CardSlot)
             {
                 currentPrice = startPrice;
                 level = 0;
             }
             else
             {
-                currentPrice = GameHandler.Instance.GetCardsNextCost();
+                currentPrice = GameHandler.Instance.CardsNextCost;
                 level = GameHandler.Instance.GetCardSlots();
             }
             //Update the UI with the initial values
@@ -63,15 +70,47 @@ public class ShopUpgrade : MonoBehaviour
 
     void ActivateUpgrade(float upgradeMultiplier)
     {
-        if (useMultiplier) { GameHandler.Instance.AddMultiplier(upgradeMultiplier); return; }
-        if (useIncome) { GameHandler.Instance.AddIncome(upgradeIncome); return; }
-        Debug.LogWarning("Upgrade type not defined for: " + nameUpgrade);
+        switch (upgradeType)
+        {
+            case UpgradeType.TickRate:
+                GameHandler.Instance.ReduceTickRate(upgradeTickRate);
+                break;
+            case UpgradeType.Multiplier:
+                GameHandler.Instance.AddMultiplier(upgradeMultiplier);
+                break;
+            case UpgradeType.Income:
+                GameHandler.Instance.AddIncome(upgradeIncome);
+                break;
+            case UpgradeType.CardSlot:
+                BuyCardSlot();
+                break;
+            default:
+                Debug.LogWarning("Unknown upgrade type: " + upgradeType);
+                break;
+        }
+
 
     }
     void DeactivateUpgrade(float upgradeMultiplier)
     {
-        if (useMultiplier) { GameHandler.Instance.RemoveMultiplier(upgradeMultiplier); return; }
-        if (useIncome) { GameHandler.Instance.RemoveIncome(upgradeIncome); return; }
+        switch (upgradeType)
+        {
+            case UpgradeType.TickRate:
+                GameHandler.Instance.IncreaseTickRate(upgradeTickRate);
+                break;
+            case UpgradeType.Multiplier:
+                GameHandler.Instance.RemoveMultiplier(upgradeMultiplier);
+                break;
+            case UpgradeType.Income:
+                GameHandler.Instance.RemoveIncome(upgradeIncome);
+                break;
+            case UpgradeType.CardSlot:
+                GameHandler.Instance.DecCardSlots();
+                break;
+            default:
+                Debug.LogWarning("Unknown upgrade type: " + upgradeType);
+                break;
+        }
         Debug.LogWarning("Upgrade type not defined for: " + nameUpgrade);
     }
     void BuyClick()
@@ -81,10 +120,18 @@ public class ShopUpgrade : MonoBehaviour
         {
             level++;
             currentPrice = CalculatePrice(level);
-            if (isUpgrade) ActivateUpgrade(upgradeMultiplier);
-            else BuyCardSlot();
-            Debug.Log("Upgrade purchased: " + name + " at level " + level + " for price " + currentPrice + "|isUpgrade: " + isUpgrade);
+            if (upgradeType == UpgradeType.CardSlot) BuyCardSlot();
+            else ActivateUpgrade(upgradeMultiplier);
+            Debug.Log("Upgrade purchased: " + name + " at level " + level + " for price " + currentPrice + "|Type: " + upgradeType);
             UpdateUpgradeUI();
+
+
+
+            if (destroyOnPurchase)
+            {
+                Destroy(gameObject);
+                Debug.Log("Upgrade destroyed after purchase: " + name);
+            }
         }
     }
 
@@ -92,7 +139,7 @@ public class ShopUpgrade : MonoBehaviour
     {
         GameHandler.Instance.IncCardSlots();
         GameHandler.Instance.IncCardsNextCost();
-        currentPrice = GameHandler.Instance.GetCardsNextCost();
+        currentPrice = GameHandler.Instance.CardsNextCost;
         level = GameHandler.Instance.GetCardSlots();
         //Updateing UIs
         GameHandler.Instance.UpdateUI();
