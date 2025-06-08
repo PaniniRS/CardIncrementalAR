@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
 
-    public static CardManager instance;
+    public static CardManager Instance;
     void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public enum Suits
@@ -19,6 +20,7 @@ public class CardManager : MonoBehaviour
     }
     public enum Value
     {
+        None = 0,
         A = 1,
         Two = 2,
         Three = 3,
@@ -60,10 +62,12 @@ public class CardManager : MonoBehaviour
 
     public List<Card> Hand { get; set; } = new List<Card>();
     public List<Card> Deck { get; set; } = new List<Card>();
-
+    public int HandCardSlots { get; set; } = 5;
+    public int CardDrawn { get; set; } = 0;
+    [SerializeField] ShopUpgrade handCardSlotUpgrade;
     PokerHand[] activeCombinations = new PokerHand[10];
 
-    //////////////////////////////////
+    ///////////////////////////////////
     /// Poker Hand Combos
     /// 
     /// 
@@ -73,28 +77,31 @@ public class CardManager : MonoBehaviour
     //Functions repeat since we cannot use enums or structs in Unity UI
     public void AddToHandUniversal(GameObject gameObject)
     {
-        name = gameObject.name;
-        Suits suit = ExtractSuitFromCardName(name); // Extract suit from the card name
-
-        Value cardValue = (Value)Enum.Parse(typeof(Value), name.Substring(1)); // Extract value from name (e.g., "C2" -> 2)
-        Hand.Add(new Card(suit, cardValue)); // Add the card to the Hand
-        Debug.Log($"Added {cardValue} of {suit} to Hand.");
-        CheckPokerHand(); // Call the function to check poker Hands after adding a card
+        Card card = ConvertGameObjToCard(gameObject);
+        //If card is not in the deck check if we can add it, if not notify and exit fn.
+        if (!CardIsInDeck(card))
+        {
+            if (CardDrawn < HandCardSlots) { AddCardToDeck(card); }
+            else
+            { GameHandler.Instance.ShowNotification("No more card draw slots available, please buy more to draw a card."); return; }
+        }
+        //Continues if we successfully added the card to our deck or card was already in deck
+        AddCardToActiveSlot(card);
+        //Activate card to generate income once it is in the active slot
+        GameHandler.Instance.ActivateCard((int)card.value);
+        CheckPokerHand();
         GameHandler.Instance.UpdateUI();
     }
-
     public void RemoveFromHandUniversal(GameObject gameObject)
     {
-        // This function will remove a card from the Hand based on the GameObject's name.
-        // The name should contain the suit and value information.
-        name = gameObject.name;
-        Suits suit = ExtractSuitFromCardName(name); // Extract suit from the card name
-
-        Value cardValue = (Value)Enum.Parse(typeof(Value), name.Substring(1)); // Extract value from name (e.g., "C2" -> 2
+        Card card = ConvertGameObjToCard(gameObject);
         // Remove the card from the Hand | Where removes on false
-        Hand.RemoveAll(card => card.suit == suit && card.value == cardValue);
-        Debug.Log($"Removed {cardValue} of {suit} from Hand.");
+        Hand.RemoveAll(c => c.suit == card.suit && c.value == card.value);
+        //Stop the card counting towards income
+        GameHandler.Instance.DeactivateCard((int)card.value);
+        Debug.Log($"Removed {card.value} of {card.suit} from Hand.");
         CheckPokerHand(); // Call the function to check poker Hands after removing a card
+
         GameHandler.Instance.UpdateUI();
     }
 
@@ -186,7 +193,6 @@ public class CardManager : MonoBehaviour
             Debug.Log("Checking poker Hand combinations...");
         }
     }
-
     Boolean IsOnePair()
     {
         // Check if there is exactly one pair in the Hand
@@ -258,13 +264,51 @@ public class CardManager : MonoBehaviour
         if (cardName.Contains("S")) return Suits.Spade;
         if (cardName.Contains("D")) return Suits.Diamond;
         if (cardName.Contains("C")) return Suits.Club;
-        if (cardName.Contains("JokerBlack")) return Suits.JokerBlack;
-        if (cardName.Contains("JokerRed")) return Suits.JokerRed;
-        if (cardName.Contains("Socials")) return Suits.Socials;
-        if (cardName.Contains("Info")) return Suits.Info;
-        if (cardName.Contains("InfoRed")) return Suits.InfoRed;
-        if (cardName.Contains("InfoBlue")) return Suits.InfoBlue;
-
+        if (cardName.Contains("JOKERBLACK")) return Suits.JokerBlack;
+        if (cardName.Contains("JOKERRED")) return Suits.JokerRed;
+        if (cardName.Contains("SOCIAL")) return Suits.Socials;
+        if (cardName.Contains("INFO")) return Suits.Info;
+        if (cardName.Contains("INFORED")) return Suits.InfoRed;
+        if (cardName.Contains("INFOBLUE")) return Suits.InfoBlue;
+        if (cardName.Contains("BACKCARD")) return Suits.CardBack;
         return Suits.CardBack; // Default case
+    }
+    ///////////////////////////////////
+    /// Drawing Cards
+    /// 
+    bool CardIsInDeck(Card card) => Hand.Contains(card);
+    void AddCardToDeck(Card card)
+    {
+        if (CardIsInDeck(card)) { GameHandler.Instance.ShowNotification("Drawn Card is already in the deck"); }
+        Deck.Add(card);
+    }
+    void AddCardToActiveSlot(Card card)
+    {
+        Hand.Add(card);
+        Debug.Log($"Added {card.value} of {card.suit} to Hand.");
+    }
+    Card ConvertGameObjToCard(GameObject gameObject)
+    {
+        //Add card to active slot
+        name = gameObject.name;
+        Suits suit = ExtractSuitFromCardName(name); // Extract suit from the card name
+        Value cardValue;
+        if (suit == Suits.CardBack || suit == Suits.Info || suit == Suits.InfoRed || suit == Suits.InfoBlue || suit == Suits.Socials || suit == Suits.JokerBlack || suit == Suits.JokerRed)
+        {
+            cardValue = Value.None;
+        }
+        else
+        {
+            string nameValuePart = (name.Length > 2) ? name.Substring(1) : "0";
+            try
+            {
+                cardValue = (Value)Enum.Parse(typeof(Value), nameValuePart); // Extract value from name (e.g., "C2" -> 2)
+            }
+            catch (System.Exception)
+            {
+                throw (new ArgumentException($"Invalid card value in name: {name}"));
+            }
+        }
+        return new Card(suit, cardValue);
     }
 }

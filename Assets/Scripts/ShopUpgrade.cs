@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 public class ShopUpgrade : MonoBehaviour
@@ -8,7 +9,8 @@ public class ShopUpgrade : MonoBehaviour
         TickRate,
         Multiplier,
         Income,
-        CardSlot
+        ActiveCardSlot,
+        DeckCardSlot
     }
 
     [Header("Upgrade Properties")]
@@ -40,7 +42,7 @@ public class ShopUpgrade : MonoBehaviour
         {
 
             //Initialize the upgrade with the starting price and level
-            if (upgradeType != UpgradeType.CardSlot)
+            if (upgradeType != UpgradeType.ActiveCardSlot || upgradeType != UpgradeType.DeckCardSlot)
             {
                 currentPrice = startPrice;
                 level = 0;
@@ -48,7 +50,8 @@ public class ShopUpgrade : MonoBehaviour
             else
             {
                 currentPrice = GameHandler.Instance.CardsNextCost;
-                level = GameHandler.Instance.GetCardSlots();
+                if (upgradeType == UpgradeType.ActiveCardSlot) level = GameHandler.Instance.GetActiveCardSlots();
+                else level = CardManager.Instance.HandCardSlots;
             }
             //Update the UI with the initial values
             UpdateUpgradeUI();
@@ -67,8 +70,7 @@ public class ShopUpgrade : MonoBehaviour
         // Price increases by 10% for each upgrade bought
         return Math.Round(currentPrice * Mathf.Pow(1.1f, level));
     }
-
-    void ActivateUpgrade(float upgradeMultiplier)
+    void ActivateUpgrade()
     {
         switch (upgradeType)
         {
@@ -81,17 +83,18 @@ public class ShopUpgrade : MonoBehaviour
             case UpgradeType.Income:
                 GameHandler.Instance.AddIncome(upgradeIncome);
                 break;
-            case UpgradeType.CardSlot:
-                BuyCardSlot();
+            case UpgradeType.ActiveCardSlot:
+                BuyActiveCardSlot();
+                break;
+            case UpgradeType.DeckCardSlot:
+                CardManager.Instance.HandCardSlots++;
                 break;
             default:
                 Debug.LogWarning("Unknown upgrade type: " + upgradeType);
                 break;
         }
-
-
     }
-    void DeactivateUpgrade(float upgradeMultiplier)
+    void DeactivateUpgrade()
     {
         switch (upgradeType)
         {
@@ -104,8 +107,11 @@ public class ShopUpgrade : MonoBehaviour
             case UpgradeType.Income:
                 GameHandler.Instance.RemoveIncome(upgradeIncome);
                 break;
-            case UpgradeType.CardSlot:
-                GameHandler.Instance.DecCardSlots();
+            case UpgradeType.ActiveCardSlot:
+                GameHandler.Instance.DecActiveCardSlots();
+                break;
+            case UpgradeType.DeckCardSlot:
+                CardManager.Instance.HandCardSlots--;
                 break;
             default:
                 Debug.LogWarning("Unknown upgrade type: " + upgradeType);
@@ -120,12 +126,9 @@ public class ShopUpgrade : MonoBehaviour
         {
             level++;
             currentPrice = CalculatePrice(level);
-            if (upgradeType == UpgradeType.CardSlot) BuyCardSlot();
-            else ActivateUpgrade(upgradeMultiplier);
+            ActivateUpgrade();
             Debug.Log("Upgrade purchased: " + name + " at level " + level + " for price " + currentPrice + "|Type: " + upgradeType);
             UpdateUpgradeUI();
-
-
 
             if (destroyOnPurchase)
             {
@@ -134,18 +137,13 @@ public class ShopUpgrade : MonoBehaviour
             }
         }
     }
-
-    void BuyCardSlot()
+    void BuyActiveCardSlot()
     {
-        GameHandler.Instance.IncCardSlots();
+        GameHandler.Instance.IncActiveCardSlots();
         GameHandler.Instance.IncCardsNextCost();
         currentPrice = GameHandler.Instance.CardsNextCost;
-        level = GameHandler.Instance.GetCardSlots();
-        //Updateing UIs
-        GameHandler.Instance.UpdateUI();
-        UpdateUpgradeUI();
+        level = GameHandler.Instance.GetActiveCardSlots();
     }
-
     public void UpdateUpgradeUI()
     {
         if (labelPrice != null && labelLevel != null && labelDescription != null)
@@ -162,6 +160,7 @@ public class ShopUpgrade : MonoBehaviour
             Debug.LogError("UI elements not assigned for upgrade: " + name);
         }
     }
+
 
     //
     //

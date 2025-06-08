@@ -37,7 +37,7 @@ public class GameHandler : MonoBehaviour
     [Header("GameHandler Variables")]
 
     public int CardsNextCost { get; set; } = 50;
-    int cardSlots = 1;
+    int activeCardSlots = 1;
     int cardsActive = 0;
     double income = 0;
     public float incomeMultiplier = 1f;
@@ -253,7 +253,6 @@ public class GameHandler : MonoBehaviour
         AddIncome(amount);
         IncActiveCard();
     }
-
     public void DeactivateCard(int amount)
     {
         RemoveIncome(amount);
@@ -288,7 +287,7 @@ public class GameHandler : MonoBehaviour
         if (newIncome < 0) { newIncome = 0; }
         income = newIncome;
     }
-    public void RemoveInwcomeDouble(double amount)
+    public void RemoveIncomeDouble(double amount)
     {
         income -= amount;
     }
@@ -297,15 +296,15 @@ public class GameHandler : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Current Hand: " + string.Join(", ", CardManager.instance.Hand.Select(card => $"{card.value} of {card.suit}")));
+            Debug.Log("Current Hand: " + string.Join(", ", CardManager.Instance.Hand.Select(card => $"{card.value} of {card.suit}")));
             //Checks whether we have more than the allowed amount of active cards
-            if (cardsActive <= CARDS_MAX_ACTIVE && cardsActive <= cardSlots)
+            if (cardsActive <= CARDS_MAX_ACTIVE && cardsActive <= activeCardSlots)
             {
                 AddMoney(Convert.ToInt32(income * incomeMultiplier * incomeComboMultiplier));
                 //Disable alert if its active for the case when we have more than the allowed amount of active cards
-                if (UIAlert.activeSelf) { HideAlert(); }
+                if (UIAlert.activeSelf) { HidePopup(); }
             }
-            else if (cardsActive > cardSlots) { AlertMoreActiveCards(); }
+            else if (cardsActive > activeCardSlots) { AlertMoreActiveCards(); }
 
 
             UpdateUI();
@@ -347,29 +346,26 @@ public class GameHandler : MonoBehaviour
             UINextCardValue.GetComponent<TextMeshProUGUI>().text = CardsNextCost.ToString();
         }
     }
-    public void IncCardSlots() { cardSlots += 1; }
-
-    public void DecCardSlots() { if (cardSlots > 0) { cardSlots -= 1; } }
-
-    public int GetCardSlots()
+    public void IncActiveCardSlots() { activeCardSlots += 1; }
+    public void DecActiveCardSlots() { if (activeCardSlots > 0) { activeCardSlots -= 1; } }
+    public int GetActiveCardSlots()
     {
-        return cardSlots;
+        return activeCardSlots;
     }
-
     public void AlertMoreActiveCards()
     {
         // Once the number of active cards is below the limit, hide the alert
-        ShowAlert("You can only have " + cardSlots + " active cards at a time.");
+        ShowPopup("You can only have " + activeCardSlots + " active cards at a time.");
     }
 
     ///////////////////////////
     /// Popup Alert Functions
-    public void ShowAlert(string message)
+    public void ShowPopup(string message)
     {
         UIAlertText.GetComponent<TextMeshProUGUI>().text = message;
         UIAlert.SetActive(true);
     }
-    public void HideAlert()
+    public void HidePopup()
     {
         UIAlert.SetActive(false);
     }
@@ -446,6 +442,5 @@ public class GameHandler : MonoBehaviour
         // Restart the passive income coroutine with the new tick rate
         SyncStartPassiveIncome();
     }
-
 
 }
