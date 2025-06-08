@@ -88,6 +88,7 @@ public class ShopUpgrade : MonoBehaviour
                 break;
             case UpgradeType.DeckCardSlot:
                 CardManager.Instance.HandCardSlots++;
+                CardManager.Instance.AnimationShakeCounterSlot();
                 break;
             default:
                 Debug.LogWarning("Unknown upgrade type: " + upgradeType);

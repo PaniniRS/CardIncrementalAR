@@ -27,6 +27,9 @@ public class GameHandler : MonoBehaviour
     [SerializeField] GameObject UINextCardValue;
     [SerializeField] GameObject UIAlert;
     [SerializeField] GameObject UIAlertText;
+    [SerializeField] GameObject UICardDrawnTotal;
+    [SerializeField] GameObject UICardDrawnTotalSlots;
+
 
     [SerializeField] Animator animatorNotification;
     [SerializeField] GameObject UINotification;
@@ -155,9 +158,14 @@ public class GameHandler : MonoBehaviour
             UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = (incomeMultiplier * incomeComboMultiplier).ToString("F2");
             UIIncomeValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(income * incomeMultiplier * incomeComboMultiplier);
             UITickrateValue.GetComponent<TextMeshProUGUI>().text = TICKRATE_SECONDS.ToString("F2") + "/s";
+            InitCardDrawn();
         }
     }
-
+    void InitCardDrawn()
+    {
+        UICardDrawnTotal.GetComponent<TextMeshProUGUI>().text = CardManager.Instance.CardDrawn.ToString();
+        UICardDrawnTotalSlots.GetComponent<TextMeshProUGUI>().text = CardManager.Instance.HandCardSlots.ToString();
+    }
     ////////////////////////
     /// Notifications
 
@@ -170,8 +178,8 @@ public class GameHandler : MonoBehaviour
         }
         UINotificationText.GetComponent<TextMeshProUGUI>().text = message;
         OpenNotification();
-        // Close the notification after 3 seconds
-        Invoke(nameof(CloseNotification), 3f);
+        // Close the notification after 4 seconds
+        Invoke(nameof(CloseNotification), 4f);
     }
     void OpenNotification()
     {

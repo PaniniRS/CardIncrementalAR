@@ -9,6 +9,7 @@ public class CardManager : MonoBehaviour
 {
 
     public static CardManager Instance;
+    [SerializeField] Animator CounterSlotAnimator;
     void Awake()
     {
         Instance = this;
@@ -62,11 +63,10 @@ public class CardManager : MonoBehaviour
 
     public List<Card> Hand { get; set; } = new List<Card>();
     public List<Card> Deck { get; set; } = new List<Card>();
-    public int HandCardSlots { get; set; } = 5;
-    public int CardDrawn { get; set; } = 0;
+    [SerializeField] public int HandCardSlots { get; set; } = 5;
+    [SerializeField] public int CardDrawn { get; set; } = 0;
     [SerializeField] ShopUpgrade handCardSlotUpgrade;
     PokerHand[] activeCombinations = new PokerHand[10];
-
     ///////////////////////////////////
     /// Poker Hand Combos
     /// 
@@ -79,17 +79,22 @@ public class CardManager : MonoBehaviour
     {
         Card card = ConvertGameObjToCard(gameObject);
         //If card is not in the deck check if we can add it, if not notify and exit fn.
+
         if (!CardIsInDeck(card))
         {
             if (CardDrawn < HandCardSlots) { AddCardToDeck(card); }
             else
-            { GameHandler.Instance.ShowNotification("No more card draw slots available, please buy more to draw a card."); return; }
+            {
+                GameHandler.Instance.ShowPopup("Cannot add more cards to the deck, please upgrade your Hand Card Slots.");
+                Debug.LogWarning("Cannot add more cards to the deck, please upgrade your Hand Card Slots.");
+                return;
+            }
         }
         //Continues if we successfully added the card to our deck or card was already in deck
         AddCardToActiveSlot(card);
         //Activate card to generate income once it is in the active slot
-        GameHandler.Instance.ActivateCard((int)card.value); //TODO: MIGHT BUG OUT NOT CONVERTING TO INT PROPERLY
-        Debug.Log($"Activated {card.value} value of {card.suit} suit to ; Parsed value: {(int)card.value}");
+        GameHandler.Instance.ActivateCard((int)card.value);
+        // Debug.Log($"Activated {card.value} value of {card.suit} suit to ; Parsed value: {(int)card.value}");
         CheckPokerHand();
         GameHandler.Instance.UpdateUI();
     }
@@ -277,11 +282,13 @@ public class CardManager : MonoBehaviour
     ///////////////////////////////////
     /// Drawing Cards
     /// 
-    bool CardIsInDeck(Card card) => Hand.Contains(card);
+    bool CardIsInDeck(Card card) => Deck.Contains(card);
     void AddCardToDeck(Card card)
     {
         if (CardIsInDeck(card)) { GameHandler.Instance.ShowNotification("Drawn Card is already in the deck"); return; }
         Deck.Add(card);
+        CardDrawn += 1;
+        AnimationShakeCounterSlot();
         GameHandler.Instance.ShowNotification($"Added {card.value} of {card.suit} to Deck.");
     }
     void AddCardToActiveSlot(Card card)
@@ -289,7 +296,7 @@ public class CardManager : MonoBehaviour
         Hand.Add(card);
         Debug.Log($"Added {card.value} of {card.suit} to Active Slot.");
     }
-    Card ConvertGameObjToCard(GameObject gameObject)
+    public Card ConvertGameObjToCard(GameObject gameObject)
     {
         //Add card to active slot
         name = gameObject.name;
@@ -309,4 +316,5 @@ public class CardManager : MonoBehaviour
                           name.Contains("K") ? Value.K : Value.None;
         return new Card(suit, cardValue);
     }
+    public void AnimationShakeCounterSlot() => CounterSlotAnimator?.SetTrigger("Shake");
 }
