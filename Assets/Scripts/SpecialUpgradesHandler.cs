@@ -139,8 +139,7 @@ public class SpecialUpgradesHandler : MonoBehaviour
             upgradeItem.transform.Find("Button").GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
                             {
                                 upgrade.action.Invoke();
-                                GameHandler.Instance.UpdateUI();
-                                Destroy(upgradeItem);
+                                UIHandler.Instance.UpdateUI();
                                 specialUpgradePanel.SetActive(false);
                                 Debug.Log("Upgrade applied: " + upgrade.name + " - " + upgrade.description);
                             });

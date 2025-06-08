@@ -18,23 +18,6 @@ public class GameHandler : MonoBehaviour
     [Header("GameHandler Objects")]
     public static GameHandler Instance;
 
-    [Header("UI Elements")]
-    [SerializeField] GameObject UIMoneyValue;
-    [SerializeField] GameObject UIIncomeValue;
-    [SerializeField] GameObject UIMultiplierValue;
-    [SerializeField] GameObject UITickrateValue;
-    [SerializeField] GameObject UICardCountValue;
-    [SerializeField] GameObject UINextCardValue;
-    [SerializeField] GameObject UIAlert;
-    [SerializeField] GameObject UIAlertText;
-    [SerializeField] GameObject UICardDrawnTotal;
-    [SerializeField] GameObject UICardDrawnTotalSlots;
-
-
-    [SerializeField] Animator animatorNotification;
-    [SerializeField] GameObject UINotification;
-    [SerializeField] GameObject UINotificationText;
-
     Coroutine passiveIncomeCoroutine;
 
     [Header("GameHandler Variables")]
@@ -42,7 +25,7 @@ public class GameHandler : MonoBehaviour
     public int CardsNextCost { get; set; } = 50;
     int activeCardSlots = 1;
     int cardsActive = 0;
-    double income = 0;
+    public double income = 0;
     public float incomeMultiplier = 1f;
     public float incomeComboMultiplier { get; set; } = 1f;
     public double citiesIncome = 0;
@@ -69,126 +52,19 @@ public class GameHandler : MonoBehaviour
     }
     void Start()
     {
-        InitUI();
-        UINotification.SetActive(true);
+        UIHandler.Instance.ShowNotification("Game Started");
     }
-    void OnEnable()
-    {
-        InitNotificationAnimator();
-    }
+
     //// UI FUNCTIONS
     //
     //
     //
 
-    public string FormatNotation(double money)
-    {
 
-        if (money >= 1_000_000_000_000)
-        {
-            return (money / 1_000_000_000_000).ToString("F2") + "T"; // Trillions
-        }
-        else if (money >= 1_000_000_000)
-        {
-            return (money / 1_000_000_000).ToString("F2") + "B"; // Billions
-        }
-        else if (money >= 1_000_000)
-        {
-            return (money / 1_000_000).ToString("F2") + "M"; // Millions
-        }
-        else if (money >= 1_000)
-        {
-            return (money / 1_000).ToString("F2") + "K"; // Thousands
-        }
-        else
-        {
-            return money.ToString("F2"); // Less than a thousand
-        }
-    }
-    void InitUI()
-    {
-        InitBalance();
-        InitMultiplier();
-        InitTickrate();
-    }
-    private void InitNotificationAnimator()
-    {
-        // Initialize the animator controller for notifications
-        if (animatorNotification == null)
-        {
-            Debug.LogError("Animator for notifications is not assigned in the GameHandler.");
-            return;
-        }
-        animatorNotification = UINotification.GetComponent<Animator>();
-    }
-    private void InitTickrate()
-    {
-        if (UITickrateValue == null)
-        {
-            Debug.LogError("UITickrateValue GameObject not found in the scene.");
-            return;
-        }
-        UITickrateValue.GetComponent<TextMeshProUGUI>().text = "/" + TICKRATE_SECONDS.ToString("F2") + "s";
-    }
-    void InitBalance()
-    {
-        if (UIMoneyValue == null)
-        {
-            Debug.LogError("UIMoneyValue GameObject not found in the scene.");
-            return;
-        }
-        UIMoneyValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(money);
 
-    }
-    void InitMultiplier()
-    {
-        if (UIMultiplierValue == null)
-        {
-            Debug.LogError("UIMultiplierValue GameObject not found in the scene.");
-            return;
-        }
-        UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = incomeMultiplier.ToString("F2");
-    }
-    public void UpdateUI()
-    {
-        // Update the UI text with the current money value
-        if (UIMoneyValue != null && UIMultiplierValue != null)
-        {
-            UIMoneyValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(money);
-            UIMultiplierValue.GetComponent<TextMeshProUGUI>().text = (incomeMultiplier * incomeComboMultiplier).ToString("F2");
-            UIIncomeValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(income * incomeMultiplier * incomeComboMultiplier);
-            UITickrateValue.GetComponent<TextMeshProUGUI>().text = TICKRATE_SECONDS.ToString("F2") + "/s";
-            InitCardDrawn();
-        }
-    }
-    void InitCardDrawn()
-    {
-        UICardDrawnTotal.GetComponent<TextMeshProUGUI>().text = CardManager.Instance.CardDrawn.ToString();
-        UICardDrawnTotalSlots.GetComponent<TextMeshProUGUI>().text = CardManager.Instance.HandCardSlots.ToString();
-    }
     ////////////////////////
     /// Notifications
 
-    public void ShowNotification(string message)
-    {
-        if (UINotificationText == null || UINotification == null)
-        {
-            Debug.LogError("UINotificationText or UINotification GameObject not found in the scene.");
-            return;
-        }
-        UINotificationText.GetComponent<TextMeshProUGUI>().text = message;
-        OpenNotification();
-        // Close the notification after 4 seconds
-        Invoke(nameof(CloseNotification), 4f);
-    }
-    void OpenNotification()
-    {
-        animatorNotification.SetTrigger("Open");
-    }
-    void CloseNotification()
-    {
-        animatorNotification.SetTrigger("Close");
-    }
     //// MONEY HANDLING FUNCTIONS
     ///     
     /// 
@@ -214,7 +90,7 @@ public class GameHandler : MonoBehaviour
     void AddMoney(double amount)
     {
         money += amount;
-        UpdateUI();
+        UIHandler.Instance.UpdateUI();
 
     }
     public void RemoveMoney(double amount)
@@ -227,7 +103,7 @@ public class GameHandler : MonoBehaviour
         }
 
         money = newMoney;
-        UpdateUI();
+        UIHandler.Instance.UpdateUI();
     }
     public double GetMoney()
     {
@@ -236,7 +112,7 @@ public class GameHandler : MonoBehaviour
     void SetMoney(double amount)
     {
         money = amount;
-        UpdateUI();
+        UIHandler.Instance.UpdateUI();
     }
     void IncUpgradeBoughtStat() { upgradesBought += 1; }
     //Income Multiplier functions
@@ -310,12 +186,12 @@ public class GameHandler : MonoBehaviour
             {
                 AddMoney(Convert.ToInt32(income * incomeMultiplier * incomeComboMultiplier));
                 //Disable alert if its active for the case when we have more than the allowed amount of active cards
-                if (UIAlert.activeSelf) { HidePopup(); }
+                if (UIHandler.Instance.IsPopupActive()) { UIHandler.Instance.HidePopup(); }
             }
             else if (cardsActive > activeCardSlots) { AlertMoreActiveCards(); }
 
 
-            UpdateUI();
+            UIHandler.Instance.UpdateUI();
             yield return new WaitForSeconds(TICKRATE_SECONDS);
         }
     }
@@ -344,14 +220,14 @@ public class GameHandler : MonoBehaviour
     public void IncCardsNextCost()
     {
         CardsNextCost *= Convert.ToInt32(Math.Pow(10, Convert.ToDouble(cardsActive))); // Increment by 10 for example
-        UINextCardValue.GetComponent<TextMeshProUGUI>().text = CardsNextCost.ToString();
+        UIHandler.Instance.UpdateUINextCardValue();
     }
     public void DecCardsNextCost()
     {
         if (CardsNextCost > 0)
         {
             CardsNextCost /= Convert.ToInt32(Math.Pow(10, Convert.ToDouble(cardsActive))); // Increment by 10 for example
-            UINextCardValue.GetComponent<TextMeshProUGUI>().text = CardsNextCost.ToString();
+            UIHandler.Instance.UpdateUINextCardValue();
         }
     }
     public void IncActiveCardSlots() { activeCardSlots += 1; }
@@ -363,20 +239,9 @@ public class GameHandler : MonoBehaviour
     public void AlertMoreActiveCards()
     {
         // Once the number of active cards is below the limit, hide the alert
-        ShowPopup("You can only have " + activeCardSlots + " active cards at a time.");
+        UIHandler.Instance.ShowPopup("You can only have " + activeCardSlots + " active cards at a time.");
     }
 
-    ///////////////////////////
-    /// Popup Alert Functions
-    public void ShowPopup(string message)
-    {
-        UIAlertText.GetComponent<TextMeshProUGUI>().text = message;
-        UIAlert.SetActive(true);
-    }
-    public void HidePopup()
-    {
-        UIAlert.SetActive(false);
-    }
 
     ////////////////////////// Functions for specialUpgrades
     //Random money adding function
@@ -387,7 +252,7 @@ public class GameHandler : MonoBehaviour
 
         AddMoney(Math.Round(money * randomAmountMultiplier));
         // Update the UI with the new money value
-        UpdateUI();
+        UIHandler.Instance.UpdateUI();
     }
 
     //Temporary multiplier function
@@ -397,11 +262,11 @@ public class GameHandler : MonoBehaviour
         float originalMultiplier = incomeMultiplier;
         // Apply the temporary multiplier
         incomeMultiplier *= value;
-        UpdateUI();
+        UIHandler.Instance.UpdateUI();
         yield return new WaitForSeconds(duration);
         // Restore the original multiplier
         incomeMultiplier /= value;
-        UpdateUI();
+        UIHandler.Instance.UpdateUI();
     }
     public void TemporarilyAddMultiplier(float value, float duration)
     {
@@ -425,7 +290,7 @@ public class GameHandler : MonoBehaviour
             AddMoney(amountChange); // If positive, add money
         }
         // Update the UI with the new money value
-        UpdateUI();
+        UIHandler.Instance.UpdateUI();
 
     }
     public void ReduceTickRate(float value)
@@ -451,4 +316,26 @@ public class GameHandler : MonoBehaviour
         SyncStartPassiveIncome();
     }
 
+
+    ///////////////////////
+    ///////////////////////
+    ///////////////////////
+    ///////////////////////
+    ///////////////////////
+    /// Prestige System
+    public void ResetGameVariables()
+    {
+        // Reset game variables to their initial state
+        money = 10;
+        income = 0;
+        incomeMultiplier = 1f;
+        incomeComboMultiplier = 1f;
+        cardsActive = 0;
+        activeCardSlots = 1;
+        CardsNextCost = 50;
+        TICKRATE_SECONDS = 1f;
+
+        // Reset the UI
+        UIHandler.Instance.UpdateUI();
+    }
 }

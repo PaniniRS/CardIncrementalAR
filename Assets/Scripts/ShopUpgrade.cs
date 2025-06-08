@@ -55,7 +55,7 @@ public class ShopUpgrade : MonoBehaviour
             }
             //Update the UI with the initial values
             UpdateUpgradeUI();
-            GameHandler.Instance.UpdateUI();
+            UIHandler.Instance.UpdateUI();
             // Add listener to the upgrade button
             upgradeButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(BuyClick);
             Debug.Log("ShopUpgrade initialized: " + name);
@@ -88,7 +88,7 @@ public class ShopUpgrade : MonoBehaviour
                 break;
             case UpgradeType.DeckCardSlot:
                 CardManager.Instance.HandCardSlots++;
-                CardManager.Instance.AnimationShakeCounterSlot();
+                AnimationHandler.Instance.AnimationShakeCounterSlot();
                 break;
             default:
                 Debug.LogWarning("Unknown upgrade type: " + upgradeType);
@@ -151,10 +151,10 @@ public class ShopUpgrade : MonoBehaviour
         {
             Debug.Log("Updating UI for upgrade: " + name);
             labelName.GetComponent<TMPro.TextMeshProUGUI>().text = nameUpgrade;
-            labelPrice.GetComponent<TMPro.TextMeshProUGUI>().text = GameHandler.Instance.FormatNotation(currentPrice);
+            labelPrice.GetComponent<TMPro.TextMeshProUGUI>().text = UIHandler.Instance.FormatNotation(currentPrice);
             labelLevel.GetComponent<TMPro.TextMeshProUGUI>().text = level.ToString();
             labelDescription.GetComponent<TMPro.TextMeshProUGUI>().text = descriptionUpgrade;
-            GameHandler.Instance.UpdateUI();
+            UIHandler.Instance.UpdateUI();
         }
         else
         {

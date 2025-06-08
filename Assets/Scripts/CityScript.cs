@@ -46,16 +46,16 @@ public class CityScript : MonoBehaviour
             GameHandler.Instance.AddIncome(cityIncomeBenefit);
             // Increment the number of cities bought
             WorldHandler.Instance.citiesBought++;
-            GameHandler.Instance.UpdateUI();
+            UIHandler.Instance.UpdateUI();
             // Show notification for successful purchase
-            GameHandler.Instance.ShowNotification("You bought " + cityName + " for " + GameHandler.Instance.FormatNotation(cityPrice));
-            Debug.Log("You bought " + cityName + " for " + GameHandler.Instance.FormatNotation(cityPrice));
+            UIHandler.Instance.ShowNotification("You bought " + cityName + " for " + UIHandler.Instance.FormatNotation(cityPrice));
+            Debug.Log("You bought " + cityName + " for " + UIHandler.Instance.FormatNotation(cityPrice));
             // Destroy this city object
             Destroy(gameObject);
         }
         else
         {
-            GameHandler.Instance.ShowNotification("Not enough money to buy " + cityName);
+            UIHandler.Instance.ShowNotification("Not enough money to buy " + cityName);
             Debug.Log("Not enough money to buy " + cityName);
         }
     }
@@ -63,18 +63,18 @@ public class CityScript : MonoBehaviour
     void OnMouseEnter()
     {
         // show popup with city name and description
-        ShowPopup();
+        ShowCityPopup();
     }
     void OnMouseExit()
     {
         // hide popup
-        HidePopup();
+        HideCityPopup();
     }
-    void ShowPopup()
+    void ShowCityPopup()
     {
         popupPanel.SetActive(true);
     }
-    void HidePopup()
+    void HideCityPopup()
     {
         // Implement the logic to hide the popup
         popupPanel.SetActive(false);
@@ -83,7 +83,7 @@ public class CityScript : MonoBehaviour
     {
         titleText.GetComponent<TextMeshProUGUI>().text = cityName;
         descriptionText.GetComponent<TextMeshProUGUI>().text = cityDescription;
-        priceText.GetComponent<TextMeshProUGUI>().text = GameHandler.Instance.FormatNotation(cityPrice);
+        priceText.GetComponent<TextMeshProUGUI>().text = UIHandler.Instance.FormatNotation(cityPrice);
     }
 
 }

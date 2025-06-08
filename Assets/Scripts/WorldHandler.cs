@@ -29,11 +29,11 @@ public class WorldHandler : MonoBehaviour
     IEnumerable WonGame()
     {
         yield return new WaitUntil(() => citiesBought >= MAX_CITIES);
-        GameHandler.Instance.ShowNotification("You won the game! Congratulations!");
+        UIHandler.Instance.ShowNotification("You won the game! Congratulations!");
     }
     void ResetCities()
     {
         citiesBought = 0;
-        GameHandler.Instance.ShowNotification("Cities have been reset.");
+        UIHandler.Instance.ShowNotification("Cities have been reset.");
     }
 }

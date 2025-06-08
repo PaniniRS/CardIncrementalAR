@@ -1472,6 +1472,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &107622370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107622372}
+  - component: {fileID: 107622371}
+  m_Layer: 0
+  m_Name: UIHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &107622371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107622370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf45e38ab10114e64bca3dce0891f71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIMoneyValue: {fileID: 854679967}
+  UIIncomeValue: {fileID: 1440608996}
+  UIMultiplierValue: {fileID: 821437269}
+  UITickrateValue: {fileID: 1247750995}
+  UICardCountValue: {fileID: 1396665524}
+  UINextCardValue: {fileID: 1461798312}
+  UIAlert: {fileID: 127529229}
+  UIAlertText: {fileID: 2044382}
+  UICardDrawnTotal: {fileID: 113106866}
+  UICardDrawnTotalSlots: {fileID: 1368154132}
+  animatorNotification: {fileID: 2017298922}
+  UINotification: {fileID: 2017298921}
+  UINotificationText: {fileID: 1884025677}
+--- !u!4 &107622372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107622370}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.926158, y: -125.96747, z: 2118.3516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &112095111
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3417,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6541309bd45b94bc5bd2e13a239c51cf, type: 3}
+--- !u!1 &235006765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235006767}
+  - component: {fileID: 235006766}
+  m_Layer: 0
+  m_Name: AnimationHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &235006766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235006765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29477a9d9ccae4130b7630a14e43b17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CounterSlotAnimator: {fileID: 2120728428}
+--- !u!4 &235006767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235006765}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -47.58671, y: -20.366573, z: 290.82812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &237704587 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5499104817403744276, guid: 6541309bd45b94bc5bd2e13a239c51cf, type: 3}
@@ -6641,8 +6743,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -51.856995}
-  m_SizeDelta: {x: 0, y: 54}
+  m_AnchoredPosition: {x: 0, y: -52.929}
+  m_SizeDelta: {x: 0, y: 51.857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &429740644
 GameObject:
@@ -22901,7 +23003,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 113106867}
   - {fileID: 36368696}
@@ -25020,19 +25122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967e9889c24354e38b76f3f1a7c35fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIMoneyValue: {fileID: 854679967}
-  UIIncomeValue: {fileID: 1440608996}
-  UIMultiplierValue: {fileID: 821437269}
-  UITickrateValue: {fileID: 1247750995}
-  UICardCountValue: {fileID: 1396665524}
-  UINextCardValue: {fileID: 1461798312}
-  UIAlert: {fileID: 127529229}
-  UIAlertText: {fileID: 2044382}
-  UICardDrawnTotal: {fileID: 0}
-  UICardDrawnTotalSlots: {fileID: 0}
-  animatorNotification: {fileID: 2017298922}
-  UINotification: {fileID: 2017298921}
-  UINotificationText: {fileID: 1884025677}
+  income: 0
   incomeMultiplier: 1
   citiesIncome: 0
   TICKRATE_SECONDS: 2
@@ -30980,6 +31070,37 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 1946329790}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!1 &1952565802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1952565803}
+  m_Layer: 0
+  m_Name: PrestigeHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1952565803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952565802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.926158, y: -125.96747, z: 2118.3516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960486063
 GameObject:
   m_ObjectHideFlags: 0
@@ -35427,8 +35548,11 @@ SceneRoots:
   - {fileID: 1518782025}
   - {fileID: 375645390}
   - {fileID: 2132702111}
+  - {fileID: 107622372}
+  - {fileID: 235006767}
+  - {fileID: 1531622542}
+  - {fileID: 142222561}
+  - {fileID: 95721087}
   - {fileID: 1826469230}
   - {fileID: 701912483}
-  - {fileID: 1531622542}
-  - {fileID: 95721087}
-  - {fileID: 142222561}
+  - {fileID: 1952565803}

@@ -9,7 +9,7 @@ public class CardManager : MonoBehaviour
 {
 
     public static CardManager Instance;
-    [SerializeField] Animator CounterSlotAnimator;
+
     void Awake()
     {
         Instance = this;
@@ -85,7 +85,7 @@ public class CardManager : MonoBehaviour
             if (CardDrawn < HandCardSlots) { AddCardToDeck(card); }
             else
             {
-                GameHandler.Instance.ShowPopup("Cannot add more cards to the deck, please upgrade your Hand Card Slots.");
+                UIHandler.Instance.ShowPopup("Cannot add more cards to the deck, please upgrade your Hand Card Slots.");
                 Debug.LogWarning("Cannot add more cards to the deck, please upgrade your Hand Card Slots.");
                 return;
             }
@@ -96,7 +96,7 @@ public class CardManager : MonoBehaviour
         GameHandler.Instance.ActivateCard((int)card.value);
         // Debug.Log($"Activated {card.value} value of {card.suit} suit to ; Parsed value: {(int)card.value}");
         CheckPokerHand();
-        GameHandler.Instance.UpdateUI();
+        UIHandler.Instance.UpdateUI();
     }
     public void RemoveFromHandUniversal(GameObject gameObject)
     {
@@ -105,10 +105,10 @@ public class CardManager : MonoBehaviour
         Hand.RemoveAll(c => c.suit == card.suit && c.value == card.value);
         //Stop the card counting towards income
         GameHandler.Instance.DeactivateCard((int)card.value);
-        Debug.Log($"Removed {card.value} of {card.suit} from Hand.");
+        // Debug.Log($"Removed {card.value} of {card.suit} from Hand.");
         CheckPokerHand(); // Call the function to check poker Hands after removing a card
 
-        GameHandler.Instance.UpdateUI();
+        UIHandler.Instance.UpdateUI();
     }
 
     void CheckPokerHand()
@@ -123,7 +123,7 @@ public class CardManager : MonoBehaviour
                 activeCombinations[0] = PokerHand.RoyalFlush;
                 GameHandler.Instance.incomeComboMultiplier *= 10f;
                 //Do animation and notification
-                GameHandler.Instance.ShowNotification("Royal Flush!");
+                UIHandler.Instance.ShowNotification("Royal Flush!");
                 Debug.Log("Royal Flush detected!");
 
             }
@@ -131,20 +131,20 @@ public class CardManager : MonoBehaviour
             {
                 activeCombinations[1] = PokerHand.StraightFlush;
                 GameHandler.Instance.incomeComboMultiplier *= 8f;
-                GameHandler.Instance.ShowNotification("Straight Flush!");
+                UIHandler.Instance.ShowNotification("Straight Flush!");
                 Debug.Log("Straight Flush detected!");
             }
             else if (IsFourOfAKind())
             {
                 activeCombinations[2] = PokerHand.FourOfAKind;
                 GameHandler.Instance.incomeComboMultiplier *= 7f;
-                GameHandler.Instance.ShowNotification("Four of a Kind!");
+                UIHandler.Instance.ShowNotification("Four of a Kind!");
                 Debug.Log("Four of a Kind detected!");
             }
             else if (IsFullHouse())
             {
                 activeCombinations[3] = PokerHand.FullHouse;
-                GameHandler.Instance.ShowNotification("Full House!");
+                UIHandler.Instance.ShowNotification("Full House!");
                 Debug.Log("Full House detected!");
                 GameHandler.Instance.incomeComboMultiplier *= 3f;
 
@@ -152,7 +152,7 @@ public class CardManager : MonoBehaviour
             else if (IsFlush())
             {
                 activeCombinations[4] = PokerHand.Flush;
-                GameHandler.Instance.ShowNotification("Flush!");
+                UIHandler.Instance.ShowNotification("Flush!");
                 Debug.Log("Flush detected!");
                 GameHandler.Instance.incomeComboMultiplier *= 2.8f;
 
@@ -160,7 +160,7 @@ public class CardManager : MonoBehaviour
             else if (IsStraight())
             {
                 activeCombinations[5] = PokerHand.Straight;
-                GameHandler.Instance.ShowNotification("Straight!");
+                UIHandler.Instance.ShowNotification("Straight!");
                 Debug.Log("Straight detected!");
                 GameHandler.Instance.incomeComboMultiplier *= 2.5f;
 
@@ -168,7 +168,7 @@ public class CardManager : MonoBehaviour
             else if (IsThreeOfAKind())
             {
                 activeCombinations[6] = PokerHand.ThreeOfAKind;
-                GameHandler.Instance.ShowNotification("Three of a Kind!");
+                UIHandler.Instance.ShowNotification("Three of a Kind!");
                 Debug.Log("Three of a Kind detected!");
                 GameHandler.Instance.incomeComboMultiplier *= 2f;
 
@@ -176,7 +176,7 @@ public class CardManager : MonoBehaviour
             else if (IsTwoPair())
             {
                 activeCombinations[7] = PokerHand.TwoPair;
-                GameHandler.Instance.ShowNotification("Two Pair!");
+                UIHandler.Instance.ShowNotification("Two Pair!");
                 Debug.Log("Two Pair detected!");
                 GameHandler.Instance.incomeComboMultiplier *= 1.5f;
 
@@ -184,14 +184,14 @@ public class CardManager : MonoBehaviour
             else if (IsOnePair())
             {
                 activeCombinations[8] = PokerHand.OnePair;
-                GameHandler.Instance.ShowNotification("One Pair!");
+                UIHandler.Instance.ShowNotification("One Pair!");
                 Debug.Log("One Pair detected!");
                 GameHandler.Instance.incomeComboMultiplier *= 1.2f;
             }
             else
             {
                 activeCombinations[9] = PokerHand.HighCard;
-                GameHandler.Instance.ShowNotification("High Card!");
+                UIHandler.Instance.ShowNotification("High Card!");
                 Debug.Log("High Card detected!");
             }
             // The logic for checking poker Hands will be implemented here.
@@ -285,11 +285,11 @@ public class CardManager : MonoBehaviour
     bool CardIsInDeck(Card card) => Deck.Contains(card);
     void AddCardToDeck(Card card)
     {
-        if (CardIsInDeck(card)) { GameHandler.Instance.ShowNotification("Drawn Card is already in the deck"); return; }
+        if (CardIsInDeck(card)) { UIHandler.Instance.ShowNotification("Drawn Card is already in the deck"); return; }
         Deck.Add(card);
         CardDrawn += 1;
-        AnimationShakeCounterSlot();
-        GameHandler.Instance.ShowNotification($"Added {card.value} of {card.suit} to Deck.");
+        AnimationHandler.Instance.AnimationShakeCounterSlot();
+        UIHandler.Instance.ShowNotification($"Added {card.value} of {card.suit} to Deck.");
     }
     void AddCardToActiveSlot(Card card)
     {
@@ -316,5 +316,17 @@ public class CardManager : MonoBehaviour
                           name.Contains("K") ? Value.K : Value.None;
         return new Card(suit, cardValue);
     }
-    public void AnimationShakeCounterSlot() => CounterSlotAnimator?.SetTrigger("Shake");
+
+    //////////////////////////////
+    /// Prestige System
+    public void ResetCards()
+    {
+        Hand.Clear();
+        Deck.Clear();
+        CardDrawn = 0;
+        HandCardSlots = 5;
+        activeCombinations = new PokerHand[10];
+        UIHandler.Instance.UpdateUI();
+        Debug.Log("Cards have been reset.");
+    }
 }
