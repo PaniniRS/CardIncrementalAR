@@ -42,16 +42,16 @@ public class ShopUpgrade : MonoBehaviour
         {
 
             //Initialize the upgrade with the starting price and level
-            if (upgradeType != UpgradeType.ActiveCardSlot || upgradeType != UpgradeType.DeckCardSlot)
-            {
-                currentPrice = startPrice;
-                level = 0;
-            }
-            else
+            if (upgradeType == UpgradeType.ActiveCardSlot || upgradeType == UpgradeType.DeckCardSlot)
             {
                 currentPrice = GameHandler.Instance.CardsNextCost;
                 if (upgradeType == UpgradeType.ActiveCardSlot) level = GameHandler.Instance.GetActiveCardSlots();
                 else level = CardManager.Instance.HandCardSlots;
+            }
+            else
+            {
+                currentPrice = startPrice;
+                level = 0;
             }
             //Update the UI with the initial values
             UpdateUpgradeUI();

@@ -88,7 +88,8 @@ public class CardManager : MonoBehaviour
         //Continues if we successfully added the card to our deck or card was already in deck
         AddCardToActiveSlot(card);
         //Activate card to generate income once it is in the active slot
-        GameHandler.Instance.ActivateCard((int)card.value);
+        GameHandler.Instance.ActivateCard((int)card.value); //TODO: MIGHT BUG OUT NOT CONVERTING TO INT PROPERLY
+        Debug.Log($"Activated {card.value} value of {card.suit} suit to ; Parsed value: {(int)card.value}");
         CheckPokerHand();
         GameHandler.Instance.UpdateUI();
     }
@@ -279,36 +280,33 @@ public class CardManager : MonoBehaviour
     bool CardIsInDeck(Card card) => Hand.Contains(card);
     void AddCardToDeck(Card card)
     {
-        if (CardIsInDeck(card)) { GameHandler.Instance.ShowNotification("Drawn Card is already in the deck"); }
+        if (CardIsInDeck(card)) { GameHandler.Instance.ShowNotification("Drawn Card is already in the deck"); return; }
         Deck.Add(card);
+        GameHandler.Instance.ShowNotification($"Added {card.value} of {card.suit} to Deck.");
     }
     void AddCardToActiveSlot(Card card)
     {
         Hand.Add(card);
-        Debug.Log($"Added {card.value} of {card.suit} to Hand.");
+        Debug.Log($"Added {card.value} of {card.suit} to Active Slot.");
     }
     Card ConvertGameObjToCard(GameObject gameObject)
     {
         //Add card to active slot
         name = gameObject.name;
         Suits suit = ExtractSuitFromCardName(name); // Extract suit from the card name
-        Value cardValue;
-        if (suit == Suits.CardBack || suit == Suits.Info || suit == Suits.InfoRed || suit == Suits.InfoBlue || suit == Suits.Socials || suit == Suits.JokerBlack || suit == Suits.JokerRed)
-        {
-            cardValue = Value.None;
-        }
-        else
-        {
-            string nameValuePart = (name.Length > 2) ? name.Substring(1) : "0";
-            try
-            {
-                cardValue = (Value)Enum.Parse(typeof(Value), nameValuePart); // Extract value from name (e.g., "C2" -> 2)
-            }
-            catch (System.Exception)
-            {
-                throw (new ArgumentException($"Invalid card value in name: {name}"));
-            }
-        }
+        Value cardValue = name.Contains("A") ? Value.A :
+                          name.Contains("2") ? Value.Two :
+                          name.Contains("3") ? Value.Three :
+                          name.Contains("4") ? Value.Four :
+                          name.Contains("5") ? Value.Five :
+                          name.Contains("6") ? Value.Six :
+                          name.Contains("7") ? Value.Seven :
+                          name.Contains("8") ? Value.Eight :
+                          name.Contains("9") ? Value.Nine :
+                          name.Contains("10") ? Value.Ten :
+                          name.Contains("J") ? Value.J :
+                          name.Contains("Q") ? Value.Q :
+                          name.Contains("K") ? Value.K : Value.None;
         return new Card(suit, cardValue);
     }
 }
