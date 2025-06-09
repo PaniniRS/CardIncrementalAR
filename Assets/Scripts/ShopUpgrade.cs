@@ -10,7 +10,8 @@ public class ShopUpgrade : MonoBehaviour
         Multiplier,
         Income,
         ActiveCardSlot,
-        DeckCardSlot
+        DeckCardSlot,
+        RandomChoose,
     }
 
     [Header("Upgrade Properties")]
@@ -25,6 +26,7 @@ public class ShopUpgrade : MonoBehaviour
     [SerializeField] CardManager.Suits suit;
     [SerializeField] UpgradeType upgradeType;
     [SerializeField] bool destroyOnPurchase = false;
+    [SerializeField] bool isPrestige = false;
 
     [Header("UI Elements")]
     [SerializeField] GameObject labelPrice;
@@ -90,6 +92,12 @@ public class ShopUpgrade : MonoBehaviour
                 CardManager.Instance.HandCardSlots++;
                 AnimationHandler.Instance.AnimationShakeCounterSlot();
                 break;
+            case UpgradeType.RandomChoose:
+                // Handle random choose upgrade logic here
+                Debug.Log("Random choose upgrade activated: " + nameUpgrade);
+                // Example: Select a random card or perform a specific action
+                SpecialUpgradesHandler.Instance.SelectRandomUpgrades();
+                break;
             default:
                 Debug.LogWarning("Unknown upgrade type: " + upgradeType);
                 break;
@@ -122,7 +130,7 @@ public class ShopUpgrade : MonoBehaviour
     }
     void BuyClick()
     {
-        bool purchaseStatus = GameHandler.Instance.BuyFromShop(currentPrice);
+        bool purchaseStatus = (isPrestige) ? PrestigeHandler.Instance.BuyFromPrestige(currentPrice) : GameHandler.Instance.BuyFromShop(currentPrice);
         if (purchaseStatus)
         {
             level++;

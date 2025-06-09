@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SpecialUpgradesHandler : MonoBehaviour
 {
+    public static SpecialUpgradesHandler Instance;
     [Header("UI Elements")]
     public GameObject specialUpgradesContainer;
     public GameObject specialUpgradeItemPrefab;
@@ -38,35 +39,23 @@ public class SpecialUpgradesHandler : MonoBehaviour
 
     [Header("Upgrades")]
     Upgrade[] specialUpgrades;
-    Upgrade cashBlast = new Upgrade("Cash Blast", "Increases your income by 10%", () => GameHandler.Instance.AddMultiplier(1.1f));
-    Upgrade cashBlast2 = new Upgrade("Cash Blast II", "Increases your income by 20%", () => GameHandler.Instance.AddMultiplier(1.2f));
-    Upgrade cashBlast3 = new Upgrade("Cash Blast III", "Increases your income by 30%", () => GameHandler.Instance.AddMultiplier(1.3f));
-    Upgrade doubleCash = new Upgrade("Double Cash", "Doubles your income for 30 seconds", () => GameHandler.Instance.TemporarilyAddMultiplier(2.0f, 30f));
-    Upgrade tripleCash = new Upgrade("Triple Cash", "Triples your income for 30 seconds", () => GameHandler.Instance.TemporarilyAddMultiplier(3.0f, 30f));
-    Upgrade cashInjection = new Upgrade("Cash Injection", "Gives you a one-time cash boost (between 20% and 120% of current income)", () => GameHandler.Instance.AddRandomMoney(0.2f, 1.2f));
-    Upgrade giveOrTake = new Upgrade("Give or Take", "Randomly gives or takes a small amount of cash (between -10% and 10% of current income)", () => GameHandler.Instance.RandomCashChange(-0.1f, 0.1f));
-    Upgrade giveOrTake2 = new Upgrade("Give or Take II", "Randomly gives or takes a small amount of cash (between -30% and 30% of current income)", () => GameHandler.Instance.RandomCashChange(-0.3f, 0.3f));
-    Upgrade giveOrTake3 = new Upgrade("Give or Take III", "Randomly gives or takes a small amount of cash (between -50% and 50% of current income)", () => GameHandler.Instance.RandomCashChange(-0.5f, 0.5f));
+    Upgrade cashBlast = new Upgrade("Cash Blast", "Increases your income by 10%", () => PrestigeHandler.Instance.PrestigeIncome = Convert.ToInt32(Math.Round(PrestigeHandler.Instance.PrestigeIncome * 0.1)));
+    Upgrade cashBlast2 = new Upgrade("Cash Blast II", "Increases your income by 20%", () => PrestigeHandler.Instance.PrestigeIncome = Convert.ToInt32(Math.Round(PrestigeHandler.Instance.PrestigeIncome * 0.2)));
+    Upgrade cashBlast3 = new Upgrade("Cash Blast III", "Increases your income by 30%", () => PrestigeHandler.Instance.PrestigeIncome = Convert.ToInt32(Math.Round(PrestigeHandler.Instance.PrestigeIncome * 0.3)));
+    Upgrade doubleCash = new Upgrade("Double Cash", "Doubles your income for 5 minutes", () => GameHandler.Instance.TemporarilyAddMultiplier(2.0f, 300f));
+    Upgrade tripleCash = new Upgrade("Triple Cash", "Triples your income for 5 minutes", () => GameHandler.Instance.TemporarilyAddMultiplier(3.0f, 300f));
     Upgrade tickRateReduce = new Upgrade("Tick Rate Reduction", "Reduces the tick rate by 0.1 seconds", () => GameHandler.Instance.ReduceTickRate(0.1f));
     Upgrade tickRateReduce2 = new Upgrade("Tick Rate Reduction II", "Reduces the tick rate by 0.2 seconds", () => GameHandler.Instance.ReduceTickRate(0.2f));
-    Upgrade tickRateGiveOrTake = new Upgrade("Tick Rate Give or Take", "Randomly gives or takes a small amount of cash (between -10% and 10% of current income) and reduces the tick rate by 0.1 seconds", () =>
-    {
-        GameHandler.Instance.RandomCashChange(-0.1f, 0.1f);
-        GameHandler.Instance.ReduceTickRate(0.1f);
-    });
-    Upgrade tickRateGamble = new Upgrade("Tick Rate Gamble", "Randomly increases or decreases the tick rate by 0.1 seconds", () =>
-    {
-        float randomChange = UnityEngine.Random.Range(-0.1f, 0.1f);
-        GameHandler.Instance.ReduceTickRate(randomChange);
-    });
-    Upgrade tickRateGamble2 = new Upgrade("Tick Rate Gamble II", "Randomly increases or decreases the tick rate by 0.2 seconds", () =>
+    Upgrade tickRateGamble = new Upgrade("Tick Rate Gamble", "Randomly increases or decreases the tick rate by 0.2 seconds", () =>
     {
         float randomChange = UnityEngine.Random.Range(-0.2f, 0.2f);
-        GameHandler.Instance.ReduceTickRate(randomChange);
+        PrestigeHandler.Instance.PrestigeTickrate += randomChange;
     });
+    Upgrade multiplierIncrease = new Upgrade("Multiplier Increase", "Increases your multiplier by 0.1", () => PrestigeHandler.Instance.PrestigeMultiplier *= 0.1f);
 
     void Awake()
     {
+        Instance = this;
         specialUpgrades = new Upgrade[]
         {
             cashBlast,
@@ -74,15 +63,9 @@ public class SpecialUpgradesHandler : MonoBehaviour
             cashBlast3,
             doubleCash,
             tripleCash,
-            cashInjection,
-            giveOrTake,
-            giveOrTake2,
-            giveOrTake3,
             tickRateReduce,
             tickRateReduce2,
-            tickRateGiveOrTake,
             tickRateGamble,
-            tickRateGamble2
         };
     }
 

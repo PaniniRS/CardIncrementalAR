@@ -21,6 +21,14 @@ public class UIHandler : MonoBehaviour
     [SerializeField] GameObject UINotification;
     [SerializeField] GameObject UINotificationText;
 
+    [Header("Prestige Elements")]
+    [SerializeField] GameObject PrestigeRewardText;
+    [SerializeField] GameObject PrestigePointsText;
+    [SerializeField] GameObject PrestigeMultiplierText;
+    [SerializeField] GameObject PrestigeIncomeText;
+    [SerializeField] GameObject PrestigeTickrateText;
+
+
 
 
     void Awake()
@@ -44,6 +52,7 @@ public class UIHandler : MonoBehaviour
             UpdateUIIncome();
             UpdateUITickrate();
             UpdateUICardDrawn();
+            // UpdateUIPrestige();
         }
     }
 
@@ -126,9 +135,29 @@ public class UIHandler : MonoBehaviour
         }
         UIIncomeValue.GetComponent<TextMeshProUGUI>().text = FormatNotation(GameHandler.Instance.income * GameHandler.Instance.incomeMultiplier * GameHandler.Instance.incomeComboMultiplier);
     }
-
     public void UpdateUINextCardValue() { UINextCardValue.GetComponent<TextMeshProUGUI>().text = GameHandler.Instance.CardsNextCost.ToString(); }
+    void UpdateUIPrestige()
+    {
+        if (PrestigeRewardText == null || PrestigePointsText == null || PrestigeMultiplierText == null || PrestigeIncomeText == null || PrestigeTickrateText == null)
+        {
+            Debug.LogError("Prestige UI elements not assigned in the GameHandler.");
+            Debug.LogError("Prestige UI elements not assigned in the GameHandler.");
+            Debug.LogError("Prestige UI elements not assigned in the GameHandler.");
+            return;
+        }
+        Debug.LogWarning(" UI HANDLER Reward: " + PrestigeHandler.Instance.PrestigeReward +
+                      ", Points: " + PrestigeHandler.Instance.PrestigePoints +
+                      ", Multiplier: " + PrestigeHandler.Instance.PrestigeMultiplier +
+                      ", Income: " + PrestigeHandler.Instance.PrestigeIncome +
+                      ", Tickrate: " + PrestigeHandler.Instance.PrestigeTickrate);
 
+        PrestigeRewardText.GetComponent<TextMeshProUGUI>().text = PrestigeHandler.Instance.PrestigeReward.ToString();
+        PrestigePointsText.GetComponent<TextMeshProUGUI>().text = FormatNotation(PrestigeHandler.Instance.PrestigePoints);
+        PrestigeMultiplierText.GetComponent<TextMeshProUGUI>().text = PrestigeHandler.Instance.PrestigeMultiplier.ToString("F2");
+        PrestigeIncomeText.GetComponent<TextMeshProUGUI>().text = FormatNotation(PrestigeHandler.Instance.PrestigeIncome);
+        PrestigeTickrateText.GetComponent<TextMeshProUGUI>().text = PrestigeHandler.Instance.PrestigeTickrate.ToString("F2");
+
+    }
     ////////////////////////////
     /// /// Notification Methods
     /// 

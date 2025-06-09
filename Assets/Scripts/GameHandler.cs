@@ -37,7 +37,7 @@ public class GameHandler : MonoBehaviour
 
     /// ///////////////////////
     /// Stats
-    long upgradesBought { get; set; } = 0;
+    public int StatsUpgradesBought { get; set; } = 0;
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ public class GameHandler : MonoBehaviour
         if (money >= price)
         {
             RemoveMoney(price);
-            IncUpgradeBoughtStat();
+            StatsUpgradesBought += 1;
             return true;
         }
         else
@@ -114,7 +114,6 @@ public class GameHandler : MonoBehaviour
         money = amount;
         UIHandler.Instance.UpdateUI();
     }
-    void IncUpgradeBoughtStat() { upgradesBought += 1; }
     //Income Multiplier functions
     public float GetMultiplier()
     {
@@ -184,7 +183,7 @@ public class GameHandler : MonoBehaviour
             //Checks whether we have more than the allowed amount of active cards
             if (cardsActive <= CARDS_MAX_ACTIVE && cardsActive <= activeCardSlots)
             {
-                AddMoney(Convert.ToInt32(income * incomeMultiplier * incomeComboMultiplier));
+                AddMoney(Convert.ToInt32((income + PrestigeHandler.Instance.PrestigeIncome) * incomeMultiplier * PrestigeHandler.Instance.PrestigeMultiplier * incomeComboMultiplier));
                 //Disable alert if its active for the case when we have more than the allowed amount of active cards
                 if (UIHandler.Instance.IsPopupActive()) { UIHandler.Instance.HidePopup(); }
             }
@@ -192,7 +191,12 @@ public class GameHandler : MonoBehaviour
 
 
             UIHandler.Instance.UpdateUI();
-            yield return new WaitForSeconds(TICKRATE_SECONDS);
+            yield return new WaitForSeconds(TICKRATE_SECONDS - PrestigeHandler.Instance.PrestigeTickrate);
+            // If the tick rate is below the minimum, wait for the minimum tick rate
+            if (TICKRATE_SECONDS - PrestigeHandler.Instance.PrestigeTickrate < TICKRATE_SECONDS_MIN)
+            {
+                yield return new WaitForSeconds(TICKRATE_SECONDS_MIN);
+            }
         }
     }
     //Function is added so we can start coroutine from click or target added

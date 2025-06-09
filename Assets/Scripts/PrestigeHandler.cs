@@ -1,45 +1,71 @@
+using System;
 using UnityEngine;
 
 public class PrestigeHandler : MonoBehaviour
 {
-    [SerializeField] int prestigePoints = 0;
-    [SerializeField] int prestigeCost = 1000; // Cost to prestige, can be adjusted
-    [SerializeField] int prestigeReward = 10; // Points rewarded for prestiging
+    [SerializeField] public int PrestigeTimes { get; private set; } = 1; // Number of times the player has prestiged
+    [SerializeField] public int PrestigePoints { get; private set; } = 0;
+    [SerializeField] public int PrestigeReward => CalculatePrestige(); // Points rewarded for presaging //TODO: Calculate this formula
+    [SerializeField] public int PrestigeIncome { get; set; } = 0;
+    [SerializeField] public float PrestigeMultiplier { get; set; } = 0;
+    [SerializeField] public float PrestigeTickrate { get; set; } = 0;
+    [Header("Prestige Elements")]
+    [SerializeField] GameObject PrestigeRewardText;
+    [SerializeField] GameObject PrestigePointsText;
+    [SerializeField] GameObject PrestigeMultiplierText;
+    [SerializeField] GameObject PrestigeIncomeText;
+    [SerializeField] GameObject PrestigeTickrateText;
 
     public static PrestigeHandler Instance;
+
     void Awake()
     {
         Instance = this;
     }
-
-
 
     ///////////////////////
     /// 
     /// Prestige System Methods
     /// 
 
-    public void Prestige()
+    ///  
+    int CalculatePrestige()
     {
-        if (prestigePoints >= prestigeCost)
+        //Get prestige cost from gamehandler upgrades bought * citiesbought and somethign else
+        return (int)Math.Floor((double)(GameHandler.Instance.StatsUpgradesBought * WorldHandler.Instance.CitiesBought / 10 / PrestigeTimes)); // Example formula, adjust as needed
+    }
+
+    void Prestige()
+    {
+        if (PrestigePoints < 0)
         {
-            prestigePoints -= prestigeCost;
-            prestigeCost = Mathf.RoundToInt(prestigeCost * 1.5f); // Increase cost for next prestige
-            prestigePoints += prestigeReward; // Reward points for prestiging
+            UIHandler.Instance.ShowNotification("Not enough Prestige Points to prestige.");
+            Debug.LogError("Not enough Prestige Points to prestige.");
+            return;
+        }
+        //If can prestige, reset game state and add prestige points
+        GameHandler.Instance.ResetGameVariables();
+        PrestigePoints += PrestigeReward;
+        PrestigeTimes++;
+        //Notify user and update UI
+        UIHandler.Instance.ShowPopup($"Prestiged {PrestigeTimes} times! You have {PrestigePoints} Prestige Points.");
+        UIHandler.Instance.UpdateUI();
 
-            // Reset game variables
-            GameHandler.Instance.ResetGameVariables(); // Assuming this method resets necessary game variables
-            CardManager.Instance.ResetCards(); // Assuming this method resets cards
+    }
 
-
-            // Feedback
-            Debug.Log($"Prestiged! New Prestige Points: {prestigePoints}, Next Cost: {prestigeCost}");
-            //Maybe trigger some UI update or animation here
+    public bool BuyFromPrestige(double cost)
+    {
+        cost = Math.Round(cost); // Ensure cost is rounded to the nearest whole number
+        if (PrestigePoints >= cost)
+        {
+            PrestigePoints -= (int)cost;
+            return true; // Purchase successful
         }
         else
         {
-            UIHandler.Instance.ShowNotification("Not enough Prestige Points to prestige.");
-            Debug.Log("Not enough Prestige Points to prestige.");
+            UIHandler.Instance.ShowNotification("Not enough Prestige Points to buy this upgrade.");
+            Debug.LogError("Not enough Prestige Points to buy this upgrade.");
+            return false; // Purchase failed
         }
     }
 }

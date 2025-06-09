@@ -45,7 +45,7 @@ public class CityScript : MonoBehaviour
             // Increase the income by the income benefit of the city
             GameHandler.Instance.AddIncome(cityIncomeBenefit);
             // Increment the number of cities bought
-            WorldHandler.Instance.citiesBought++;
+            WorldHandler.Instance.CitiesBought++;
             UIHandler.Instance.UpdateUI();
             // Show notification for successful purchase
             UIHandler.Instance.ShowNotification("You bought " + cityName + " for " + UIHandler.Instance.FormatNotation(cityPrice));

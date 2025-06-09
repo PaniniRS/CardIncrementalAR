@@ -7,7 +7,7 @@ public class WorldHandler : MonoBehaviour
 {
     public static WorldHandler Instance;
 
-    public int citiesBought = 0;
+    public int CitiesBought { get; set; } = 0;
 
     readonly public int MAX_CITIES = 6;
 
@@ -28,12 +28,12 @@ public class WorldHandler : MonoBehaviour
     ////////////////////////////////////////////////////
     IEnumerable WonGame()
     {
-        yield return new WaitUntil(() => citiesBought >= MAX_CITIES);
+        yield return new WaitUntil(() => CitiesBought >= MAX_CITIES);
         UIHandler.Instance.ShowNotification("You won the game! Congratulations!");
     }
     void ResetCities()
     {
-        citiesBought = 0;
+        CitiesBought = 0;
         UIHandler.Instance.ShowNotification("Cities have been reset.");
     }
 }
